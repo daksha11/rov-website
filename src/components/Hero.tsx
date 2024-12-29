@@ -1,11 +1,11 @@
 "use client";
-import React from "react";
-import { ContainerScroll } from "./ui/controller-scroll-animation";
 import Image from "next/image";
+import { ContainerScroll } from "./ui/controller-scroll-animation";
 
 export function HeroScrollDemo() {
   return (
-    <div className="flex flex-col overflow-hidden">
+    <div className="flex flex-col overflow-hidden"
+    style={{marginBottom: "0"}}>
       <ContainerScroll
         titleComponent={
           <>
@@ -27,6 +27,10 @@ export function HeroScrollDemo() {
           draggable={false}
         />
       </ContainerScroll>
+
+      {/* Bright white line */}
+      {/*<div className="w-full h-[2px] bg-white"></div>*/}
+
     </div>
   );
 }
