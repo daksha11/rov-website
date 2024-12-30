@@ -25,7 +25,6 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ imageUrl }) => (
     >
       <img
         src={imageUrl}
-        alt={title}
         style={{
           maxWidth: "100%",
           maxHeight: "100%",
