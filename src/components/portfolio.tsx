@@ -103,14 +103,13 @@ const Carousel: React.FC = () => {
   ];
 
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [visibleItems, setVisibleItems] = useState<number>(10);
+  const visibleItems = 10;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
 
-    const totalItems = items.length;
     const itemWidth = 300; // Width of each item including gap
     const totalWidth = itemWidth * visibleItems;
 
