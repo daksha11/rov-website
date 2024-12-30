@@ -7,7 +7,7 @@ interface CarouselItemProps {
   imageUrl: string;
 }
 
-const CarouselItem: React.FC<CarouselItemProps> = ({ title, imageUrl, category }) => (
+const CarouselItem: React.FC<CarouselItemProps> = ({ imageUrl }) => (
     <div
       style={{
         flex: "0 0 300px",
