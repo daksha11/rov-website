@@ -1,10 +1,10 @@
-"use client";
+"use client"; // This marks the component as a Client Component
 import Spline from '@splinetool/react-spline';
 
 const Mail = () => {
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent default form submission
-    const email = e.target.email.value; // Get the email value
+    const email = (e.target as HTMLFormElement).email.value; // Get the email value
 
     if (!email) {
       alert("Please enter your email address."); // Alert if email is empty
@@ -78,7 +78,7 @@ const Mail = () => {
         </form>
       </div>
     </section>
-    );
+  );
 };
 
 export default Mail;
