@@ -22,7 +22,7 @@ const Mail = () => {
 
         if (response.ok) {
           alert(`Thank you for signing up with ${email}!`);
-          e.target.reset(); // Reset the form
+          (e.target as HTMLFormElement).reset(); // Reset the form
         } else {
           alert('Failed to save email. Please try again.');
         }
