@@ -3,9 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 interface CarouselItemProps {
-  title: string;
   imageUrl: string;
-  category: string;
 }
 
 const CarouselItem: React.FC<CarouselItemProps> = ({ title, imageUrl, category }) => (
@@ -54,49 +52,57 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ title, imageUrl, category }
 const Carousel: React.FC = () => {
   const items: CarouselItemProps[] = [
     {
-        title: "Blind In Love Again (feat. Ave, Basu & FLOWERZ) - Single",
         imageUrl: "/rov_album_4.webp",
-        category: "Apple Music",
         },
     {
-        title: "Save Me (feat. Ave, Ro$e$, NSU AJ, YDXX & Maliikai) - Single",
         imageUrl: "/rov_album_1.webp",
-        category: "Apple Music",
       },
       {
-        title: "R.O.V. Summer Tape (feat. Basu) - EP",
         imageUrl: "/rov_album_2.webp",
-        category: "Apple Music",
       },
       {
-        title: "R.O.V. TAPE, Vol. 2 - EP",
         imageUrl: "/rov_album_3.webp",
-        category: "Apple Music",
       },
       {
-        title: "Blind In Love Again (feat. Ave, Basu & FLOWERZ) - Single",
         imageUrl: "/rov_album_4.webp",
-        category: "Apple Music",
       },
       {
-        title: "Save Me (feat. Ave, Ro$e$, NSU AJ, YDXX & Maliikai) - Single",
         imageUrl: "/rov_album_1.webp",
-        category: "Apple Music",
       },
       {
-        title: "R.O.V. Summer Tape (feat. Basu) - EP",
         imageUrl: "/rov_album_2.webp",
-        category: "Apple Music",
       },
       {
-        title: "R.O.V. TAPE, Vol. 2 - EP",
         imageUrl: "/rov_album_3.webp",
-        category: "Apple Music",
+      },
+      {
+        imageUrl: "/rov_album_4.webp",
+      },
+      {
+        imageUrl: "/rov_album_1.webp",
+      },
+      {
+        imageUrl: "/rov_album_2.webp",
+      },
+      {
+        imageUrl: "/rov_album_3.webp",
+      },
+      {
+        imageUrl: "/rov_album_4.webp",
+      },
+      {
+        imageUrl: "/rov_album_1.webp",
+      },
+      {
+        imageUrl: "/rov_album_2.webp",
+      },
+      {
+        imageUrl: "/rov_album_3.webp",
       },
   ];
 
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [visibleItems, setVisibleItems] = useState<number>(4);
+  const [visibleItems, setVisibleItems] = useState<number>(10);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
