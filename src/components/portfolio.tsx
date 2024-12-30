@@ -43,8 +43,6 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ imageUrl }) => (
           color: "white",
         }}
       >
-        <h4 style={{ margin: 0, fontSize: "1.2rem" }}>{title}</h4>
-        <p style={{ margin: "5px 0 0", fontSize: "0.9rem" }}>{category}</p>
       </div>
     </div>
 );
