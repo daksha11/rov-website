@@ -70,8 +70,12 @@ const Mail = () => {
             style={{
               backgroundColor: "#651fff",
             }}
-            onMouseEnter={(e) => (e.target.style.backgroundColor = "#6200ea")}
-            onMouseLeave={(e) => (e.target.style.backgroundColor = "#651fff")}
+            onMouseEnter={(e) => {
+              (e.target as HTMLButtonElement).style.backgroundColor = "#6200ea";
+            }}
+            onMouseLeave={(e) => {
+              (e.target as HTMLButtonElement).style.backgroundColor = "#651fff";
+            }}
           >
             Sign Up
           </button>
