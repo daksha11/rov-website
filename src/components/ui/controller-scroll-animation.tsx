@@ -5,8 +5,9 @@ import React, { useRef } from "react";
 
 
 interface HeaderProps {
-  translate: string | number;
+  //translate: string | number;
   titleComponent: React.ReactNode;
+  translate: any;
 }
 
 export const ContainerScroll = ({
@@ -58,7 +59,7 @@ export const ContainerScroll = ({
           paddingBottom:"0"
         }}
       >
-        <Header translate={translate} titleComponent={titleComponent} />
+        <Header translate={ translate } titleComponent={titleComponent} />
         <Card rotate={rotate} translate={translate} scale={scale}>
           {children}
         </Card>
