@@ -1,8 +1,6 @@
 "use client";
 
-import Image from 'next/image';
 import React, { useEffect, useRef, useState } from "react";
-<Image src="/path/to/image.jpg" alt="Description" width={500} height={300} />
 
 
 interface CarouselItemProps {
@@ -106,6 +104,7 @@ const Carousel: React.FC = () => {
 
   const carouselRef = useRef<HTMLDivElement>(null);
   const [visibleItems, setVisibleItems] = useState<number>(10);
+  setVisibleItems;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -113,6 +112,7 @@ const Carousel: React.FC = () => {
     if (!carousel) return;
 
     const totalItems = items.length;
+    totalItems;
     const itemWidth = 300; // Width of each item including gap
     const totalWidth = itemWidth * visibleItems;
 

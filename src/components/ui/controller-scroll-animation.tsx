@@ -1,7 +1,13 @@
 "use client";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
-import Image from 'next/image'; // Import Image component from Next.js
+//import Image from 'next/image'; // Import Image component from Next.js
+
+
+interface HeaderProps {
+  translate: string | number;
+  titleComponent: React.ReactNode;
+}
 
 export const ContainerScroll = ({
   titleComponent,
@@ -61,7 +67,7 @@ export const ContainerScroll = ({
   );
 };
 
-export const Header = ({ translate, titleComponent }: any) => {
+export const Header: React.FC<HeaderProps> = ({ translate, titleComponent }) => {
   return (
     <motion.div
       style={{
