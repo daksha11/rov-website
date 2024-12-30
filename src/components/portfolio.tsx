@@ -1,6 +1,9 @@
 "use client";
 
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from "react";
+<Image src="/path/to/image.jpg" alt="Description" width={500} height={300} />
+
 
 interface CarouselItemProps {
   imageUrl: string;
