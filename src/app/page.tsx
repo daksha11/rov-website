@@ -2,6 +2,7 @@ import Footer from "@/components/footer";
 import { HeroScrollDemo } from "@/components/Hero";
 import Mail from "@/components/mail";
 import Navbar from "@/components/navbar";
+import Carousel from "@/components/portfolio";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <Navbar />
         <HeroScrollDemo />
         <Mail />
+        <Carousel />
         <Footer />
       </div>
     </main>

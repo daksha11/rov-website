@@ -1,5 +1,5 @@
 "use client";
-//import Spline from '@splinetool/react-spline';
+import Spline from '@splinetool/react-spline';
 
 const Mail = () => {
   const handleSubmit = async (e) => {
@@ -34,8 +34,6 @@ const Mail = () => {
   };
 
   return (
-    /* For Spline (3D background)
-
     <section
       className="relative flex justify-center text-white h-screen"
       style={{
@@ -66,52 +64,6 @@ const Mail = () => {
             }}
             required
           />
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4"
-          >
-            Sign Up
-          </button>
-        </form>
-      </div>
-    </section>
-    */
-
-
-
-    <section 
-      className="flex justify-center text-white" 
-      style={{
-        backgroundImage: "url('music_waves.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div 
-      className="container mx-auto px-4 max-w-xl bg-black bg-opacity-0 p-8 rounded-md"
-      style={{paddingTop: "7rem"}}
-      >
-        <h1 className="text-3xl text-white mb-6 text-center">
-          JOIN OUR MAILING LIST FOR THE LATEST BEATS
-        </h1>
-        <form onSubmit={handleSubmit} className="flex items-center justify-center">
-          <input 
-            type="email" 
-            name="email"
-            className="px-4 py-2 mr-4 text-gray-300 placeholder-gray-500 focus:outline-none"
-            placeholder="Enter your email" 
-            style={{
-              backgroundColor: "black", // Maintain black background
-              color: "white", // White text color
-              marginRight: "0"
-            }}
-            required
-          />
           <button 
             type="submit" 
             className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4"
@@ -126,7 +78,7 @@ const Mail = () => {
         </form>
       </div>
     </section>
-  );
+    );
 };
 
 export default Mail;
