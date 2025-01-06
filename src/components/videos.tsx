@@ -8,61 +8,80 @@ const VideoPage: React.FC = () => {
       style={{
         backgroundColor: "black",
         color: "white",
-        height: "100vh",
+        minHeight: "100vh",
         display: "flex",
-        justifyContent: "space-between",
+        flexDirection: "column",
         alignItems: "center",
         fontFamily: "Arial, sans-serif",
-        padding: "20px 15rem",
+        padding: "20px",
         backgroundImage: "url('/StarBack.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Left Section */}
-      <div style={{ display: "flex", alignItems: "center" }}>
-        {/* Vertical Text on Left */}
-        <div
-          style={{
-            writingMode: "vertical-rl",
-            transform: "rotate(180deg)",
-            fontSize: "70px",
-            marginRight: "100px",
-          }}
-        >
-          Latest videos
+      {/* Main Container with Flexible Layout */}
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          gap: "20px",
+        }}
+      >
+        {/* Left Section */}
+        <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}>
+          <div style={verticalTextStyle}>Latest videos</div>
+          <VideoPlayer />
         </div>
 
-        {/* First Player */}
-        <VideoPlayer />
-      </div>
-
-      {/* Right Section */}
-      <div style={{ display: "flex", alignItems: "center" }}>
-        {/* Second Player */}
-        <VideoPlayer />
-
-        {/* Vertical Text on Right */}
-        <div
-          style={{
-            writingMode: "vertical-rl",
-            fontSize: "70px",
-            marginLeft: "100px",
-          }}
-        >
-          Latest videos
+        {/* Right Section */}
+        <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}>
+          <VideoPlayer />
+          <div style={verticalTextStyle}>Latest videos</div>
         </div>
       </div>
+
     </div>
   );
 };
 
+// Common Styles
+const verticalTextStyle: React.CSSProperties = {
+  writingMode: "vertical-rl",
+  transform: "rotate(180deg)",
+  fontSize: "70px",
+  margin: "0 50px",
+  textAlign: "center",
+};
+
+const scrollBoxStyle: React.CSSProperties = {
+  width: "100%",
+  overflow: "hidden",
+  backgroundColor: "#3b96a2",
+  padding: "10px 0",
+  marginTop: "20px",
+  whiteSpace: "nowrap",
+  position: "relative",
+};
+
+const scrollTextStyle: React.CSSProperties = {
+  display: "inline-block",
+  fontSize: "24px",
+  color: "white",
+  animation: "scrollText 10s linear infinite",
+};
+
+// Video Player Component
 const VideoPlayer: React.FC = () => {
   return (
     <div
+      className="video-container"
       style={{
         background: "linear-gradient(to bottom, #1e90ff, #87cefa)",
-        width: "250px",
+        width: "90%", // Responsive width
+        maxWidth: "250px", // Limit max width
         height: "450px",
         borderRadius: "15px",
         display: "flex",
@@ -72,7 +91,7 @@ const VideoPlayer: React.FC = () => {
         position: "relative",
         transition: "transform 0.3s",
       }}
-      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.14)")}
+      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
       onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
     >
       <video
@@ -104,19 +123,11 @@ const VideoPlayer: React.FC = () => {
         }}
       >
         {/* MENU Button */}
-        <div
-          style={{
-            position: "absolute",
-            top: "10px",
-            fontSize: "12px",
-            fontWeight: "bold",
-            color: "black",
-          }}
-        >
+        <div style={{ position: "absolute", top: "10px", fontSize: "12px", fontWeight: "bold", color: "black" }}>
           MENU
         </div>
 
-        {/* Left & Right Buttons (Properly Positioned) */}
+        {/* Left & Right Buttons */}
         <div
           style={{
             position: "absolute",
@@ -135,19 +146,11 @@ const VideoPlayer: React.FC = () => {
         </div>
 
         {/* Play Button */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: "10px",
-            fontSize: "16px",
-            fontWeight: "bold",
-            color: "black",
-          }}
-        >
+        <div style={{ position: "absolute", bottom: "10px", fontSize: "16px", fontWeight: "bold", color: "black" }}>
           ▶
         </div>
 
-        {/* Center Non-Button Element (Adjusted) */}
+        {/* Center Non-Button Element */}
         <div
           style={{
             position: "absolute",
@@ -156,7 +159,7 @@ const VideoPlayer: React.FC = () => {
             backgroundColor: "#e0e0e0",
             borderRadius: "50%",
             border: "2px solid #ccc",
-            zIndex: "-1", // Push it behind other elements
+            zIndex: "-1",
           }}
         ></div>
       </div>
