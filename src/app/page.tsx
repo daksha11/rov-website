@@ -4,6 +4,7 @@ import Mail from "@/components/mail";
 import Navbar from "@/components/navbar";
 import Carousel from "@/components/portfolio";
 import VideoPage from "@/components/videos";
+import RangeOfView from "@/components/mailing";
 export default function Home() {
   return (
     <main>
@@ -11,6 +12,7 @@ export default function Home() {
         <Navbar />
         <HeroScrollDemo />
         <VideoPage />
+        <RangeOfView />
         <Mail />
         <Carousel />
         <Footer />

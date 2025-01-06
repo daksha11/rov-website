@@ -27,7 +27,7 @@ const VideoPage: React.FC = () => {
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
-          gap: "20px",
+          gap: "200px",
         }}
       >
         {/* Left Section */}
