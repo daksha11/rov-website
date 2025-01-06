@@ -43,28 +43,35 @@ const Navbar = () => {
             href="/services"
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
-            Services
+            Mix Playlist
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+          </Link>
+          <Link
+            href="/services"
+            className="relative group hover:text-amber-400 transition-colors duration-300"
+          >
+            Gallery
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
             href="/portfolio"
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
-            Portfolio
+            Services
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
             href="/about"
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
-            About
+            Culture
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
             href="/contact"
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
-            Contact
+            Members
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </Link>
         </nav>
