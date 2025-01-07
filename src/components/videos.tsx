@@ -83,7 +83,7 @@ const VideoPlayer: React.FC = () => {
         width: "90%", // Responsive width
         maxWidth: "250px", // Limit max width
         height: "450px",
-        borderRadius: "15px",
+        borderRadius: "5px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

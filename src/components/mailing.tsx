@@ -69,7 +69,6 @@ const Mail: React.FC = () => {
         />
       </div>
 
-
         {/* Right Text Section */}
         <div style={{
           maxWidth: '400px',
@@ -98,19 +97,19 @@ const Mail: React.FC = () => {
       }}
       onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#66b2ff'}
       onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
-        Mailing list button
+        Sign Up Now
       </button>
 
       {/* Images Section - Chakra & Collage */}
       <div style={{ 
-        marginTop: '40px', 
-        display: 'flex', 
-        justifyContent: 'center', 
+        marginTop: '40px',
+        display: 'flex',
+        justifyContent: 'center',
         alignItems: 'center',
-        width: '85%',  
-        maxWidth: '900px', 
+        width: '85%',
+        maxWidth: '900px',
         flexWrap: 'wrap',
-        gap: '20px'
+        gap: '130px'
       }}>
         
         {/* Chakra Image */}
