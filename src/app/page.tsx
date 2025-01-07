@@ -1,10 +1,9 @@
 import Footer from "@/components/footer";
 import { HeroScrollDemo } from "@/components/Hero";
-import Mail from "@/components/mail";
+import Mail from "@/components/mailing";
 import Navbar from "@/components/navbar";
 import Carousel from "@/components/portfolio";
 import VideoPage from "@/components/videos";
-import RangeOfView from "@/components/mailing";
 export default function Home() {
   return (
     <main>
@@ -12,7 +11,6 @@ export default function Home() {
         <Navbar />
         <HeroScrollDemo />
         <VideoPage />
-        <RangeOfView />
         <Mail />
         <Carousel />
         <Footer />

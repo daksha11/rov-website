@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const RangeOfView: React.FC = () => {
+const Mail: React.FC = () => {
   return (
     <div style={{ 
       backgroundColor: 'black', 
@@ -43,22 +43,32 @@ const RangeOfView: React.FC = () => {
         gap: '30px'
       }}>
         
-        {/* TV Section */}
-        <div style={{
-          width: '300px',
-          height: '270px',
-          backgroundImage: `url('tv.png')`, 
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-          fontSize: '14px',
-          padding: '10px'
-        }}>
-          <p style={{ width: '70%' }}>a collection of diverse music artists.</p>
-        </div>
+      {/* TV Section */}
+      <div style={{
+        position: 'relative',
+        width: '300px',
+        height: '270px',
+        backgroundImage: `url('tv.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        {/* Content Image */}
+        <img 
+          src="cover2.png" 
+          alt="Content inside TV" 
+          style={{
+            position: 'absolute',
+            top: '30px', // Adjust to align with the TV screen
+            left: '30px', // Adjust to align with the TV screen
+            width: '230px', // Match the screen's width
+            height: '180px', // Match the screen's height
+            objectFit: 'cover',
+            zIndex: '1', // Ensure it appears on top of the TV background
+            borderRadius: '10px'
+          }} 
+        />
+      </div>
+
 
         {/* Right Text Section */}
         <div style={{
@@ -181,4 +191,4 @@ const RangeOfView: React.FC = () => {
   );
 };
 
-export default RangeOfView;
+export default Mail;
