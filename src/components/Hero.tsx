@@ -17,7 +17,7 @@ export function HeroScrollDemo() {
           </h1>
         </>
       }
-      backgroundImage="StarBack.png"  // Add this line
+      backgroundImage=""  // Add this line
     >
       <Image
         src="/image0.jpg"

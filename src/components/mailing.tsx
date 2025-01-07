@@ -87,7 +87,7 @@ const Mail: React.FC = () => {
       {/* Mailing List Button */}
       <button style={{
         backgroundColor: 'transparent',
-        border: '2px solid #66b2ff',
+        border: '2px solid #3c97a5',
         color: 'white',
         padding: '15px 20px',
         borderRadius: '30px',
@@ -99,7 +99,7 @@ const Mail: React.FC = () => {
         textAlign: 'center',
         transition: 'all 0.3s ease-in-out'
       }}
-      onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#66b2ff'}
+      onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#3c97a5'}
       onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
         Sign Up Now
       </button>
