@@ -8,7 +8,7 @@ const Mail: React.FC = () => {
       backgroundColor: 'black', 
       color: 'white', 
       fontFamily: 'Arial, sans-serif', 
-      padding: '20px',
+      padding: '20px 0',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -17,18 +17,20 @@ const Mail: React.FC = () => {
       
       {/* Header */}
       <div style={{ 
-        backgroundColor: '#66b2ff', 
+        backgroundColor: '#3c97a5', 
         width: '100%', 
-        padding: '10px 0',
+        padding: '7px 0 7px',
         display: 'flex',
         justifyContent: 'space-around',  
         alignItems: 'center',
-        fontSize: '22px',
-        fontWeight: 'bold'
+        fontSize: '40px',
+        fontWeight: 'bold',
+        marginBottom: '100px',
+        marginTop: '0'
       }}>
-        <span>Range of view</span>
-        <span>Range of view</span>
-        <span>Range of view</span>
+        <span>RANGE OF VIEW</span>
+        <span>RANGE OF VIEW</span>
+        <span>RANGE OF VIEW</span>
       </div>
 
       {/* TV and Right Text Container */}
@@ -72,9 +74,11 @@ const Mail: React.FC = () => {
         {/* Right Text Section */}
         <div style={{
           maxWidth: '400px',
-          textAlign: 'center',
-          fontSize: '18px',
-          fontWeight: 'bold'
+          textAlign: 'right',
+          fontSize: '35px',
+          fontWeight: 'bold',
+          color: '#3c97a5',
+          paddingLeft: '60px'
         }}>
           Catch the latest updates about R.O.V by signing yourself up on our email list.
         </div>
@@ -91,7 +95,7 @@ const Mail: React.FC = () => {
         cursor: 'pointer',
         marginTop: '30px',
         width: '80%',  // Extended width
-        maxWidth: '600px',
+        maxWidth: '1000px',
         textAlign: 'center',
         transition: 'all 0.3s ease-in-out'
       }}
