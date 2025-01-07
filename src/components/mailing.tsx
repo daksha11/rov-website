@@ -172,7 +172,7 @@ const Mail: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer */}
+      {/* Footer 
       <div style={{ 
         marginTop: '80px', 
         display: 'flex', 
@@ -188,7 +188,7 @@ const Mail: React.FC = () => {
         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
           <img src="xlogo.png" alt="Twitter" style={{ width: '40px', height: '40px' }} />
         </a>
-      </div>
+      </div>*/}
 
     </div>
   );

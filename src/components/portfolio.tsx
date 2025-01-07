@@ -133,7 +133,7 @@ const Carousel: React.FC = () => {
   }, [items]);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden", width: "100%", height: "400px", position: "relative" }}>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden", width: "100%", height: "400px", position: "relative", paddingTop: "150px" }}>
       <div ref={carouselRef} style={{ display: "flex", gap: "20px", willChange: "transform" }}>
         {items.map((_, index) => (
           <CarouselItem key={index} {...items[(currentIndex + index) % items.length]} />
