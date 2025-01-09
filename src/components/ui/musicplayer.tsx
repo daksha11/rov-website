@@ -5,16 +5,16 @@ import styled from 'styled-components';
 const Card = () => {
   const [progress, setProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const progressBarRef = useRef(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const intervalIdRef = useRef<NodeJS.Timeout | null>(null); // Using useRef to persist intervalId between renders
   const totalDuration = 226; // 3:46 in seconds
   
   useEffect(() => {
-    let intervalId;
     if (isPlaying) {
-      intervalId = setInterval(() => {
+      intervalIdRef.current = setInterval(() => {
         setProgress(prev => {
           if (prev >= 100) {
-            clearInterval(intervalId);
+            clearInterval(intervalIdRef.current!);
             setIsPlaying(false);
             return 100;
           }
@@ -22,10 +22,15 @@ const Card = () => {
         });
       }, 250); // Increased update frequency
     }
-    return () => clearInterval(intervalId);
+    
+    return () => {
+      if (intervalIdRef.current) {
+        clearInterval(intervalIdRef.current);
+      }
+    };
   }, [isPlaying]);
 
-  const handleProgressClick = (e) => {
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!progressBarRef.current) return;
     
     const rect = progressBarRef.current.getBoundingClientRect();
@@ -36,7 +41,7 @@ const Card = () => {
     setProgress(Math.min(Math.max(percentage, 0), 100));
   };
 
-  const formatTime = (percentage) => {
+  const formatTime = (percentage: number) => {
     const seconds = Math.floor((percentage / 100) * totalDuration);
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
