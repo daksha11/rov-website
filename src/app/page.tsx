@@ -6,6 +6,9 @@ import Carousel from "@/components/portfolio";
 import VideoPage from "@/components/videos";
 import MixPlaylist from "@/components/chart";
 import TeamMembersPage from "@/components/members";
+import Gallery from "@/components/gallery";
+import Service from "@/components/services";
+import Cultures from "@/components/cultures";
 export default function Home() {
   return (
     <main>
@@ -15,6 +18,9 @@ export default function Home() {
         <VideoPage />
         <Mail />
         <MixPlaylist />
+        <Gallery />
+        <Service />
+        <Cultures />
         <TeamMembersPage />
         <Carousel />
         <Footer />
