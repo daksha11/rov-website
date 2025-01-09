@@ -4,6 +4,8 @@ import Mail from "@/components/mailing";
 import Navbar from "@/components/navbar";
 import Carousel from "@/components/portfolio";
 import VideoPage from "@/components/videos";
+import MixPlaylist from "@/components/chart";
+import TeamMembersPage from "@/components/members";
 export default function Home() {
   return (
     <main>
@@ -12,6 +14,8 @@ export default function Home() {
         <HeroScrollDemo />
         <VideoPage />
         <Mail />
+        <MixPlaylist />
+        <TeamMembersPage />
         <Carousel />
         <Footer />
       </div>
