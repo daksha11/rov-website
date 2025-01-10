@@ -32,14 +32,14 @@ const VideoPage: React.FC = () => {
       >
         {/* Left Section */}
         <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}>
-          <div style={verticalTextStyle}>Latest videos</div>
+          <div style={verticalTextStyle180}>Latest videos</div>
           <VideoPlayer />
         </div>
 
         {/* Right Section */}
         <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}>
           <VideoPlayer />
-          <div style={verticalTextStyle}>Latest videos</div>
+          <div style={verticalTextStyle360}>Latest videos</div>
         </div>
       </div>
     </div>
@@ -47,9 +47,17 @@ const VideoPage: React.FC = () => {
 };
 
 // Common Styles
-const verticalTextStyle: React.CSSProperties = {
+const verticalTextStyle180: React.CSSProperties = {
   writingMode: "vertical-rl",
   transform: "rotate(180deg)",
+  fontSize: "70px",
+  margin: "0 50px",
+  textAlign: "center",
+};
+
+const verticalTextStyle360: React.CSSProperties = {
+  writingMode: "vertical-rl",
+  transform: "rotate(360deg)",
   fontSize: "70px",
   margin: "0 50px",
   textAlign: "center",
