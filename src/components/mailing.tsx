@@ -1,8 +1,26 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 
 const Mail: React.FC = () => {
+  const [isPopupVisible, setPopupVisible] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>('');
+
+  const handleSignUpClick = (): void => {
+    setPopupVisible(true);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    // Handle the email submission here
+    console.log('Email submitted:', email);
+    setPopupVisible(false); // Close the popup after submission
+  };
+
+  const handleClosePopup = (): void => {
+    setPopupVisible(false); // Close the popup when X is clicked
+  };
+
   return (
     <div style={{ 
       backgroundColor: 'black', 
@@ -45,31 +63,31 @@ const Mail: React.FC = () => {
         gap: '30px'
       }}>
         
-      {/* TV Section */}
-      <div style={{
-        position: 'relative',
-        width: '300px',
-        height: '270px',
-        backgroundImage: `url('tv.png')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}>
-        {/* Content Image */}
-        <img 
-          src="cover2.png" 
-          alt="Content inside TV" 
-          style={{
-            position: 'absolute',
-            top: '30px', // Adjust to align with the TV screen
-            left: '30px', // Adjust to align with the TV screen
-            width: '230px', // Match the screen's width
-            height: '180px', // Match the screen's height
-            objectFit: 'cover',
-            zIndex: '1', // Ensure it appears on top of the TV background
-            borderRadius: '10px'
-          }} 
-        />
-      </div>
+        {/* TV Section */}
+        <div style={{
+          position: 'relative',
+          width: '300px',
+          height: '270px',
+          backgroundImage: `url('tv.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}>
+          {/* Content Image */}
+          <img 
+            src="cover2.png" 
+            alt="Content inside TV" 
+            style={{
+              position: 'absolute',
+              top: '30px', // Adjust to align with the TV screen
+              left: '30px', // Adjust to align with the TV screen
+              width: '230px', // Match the screen's width
+              height: '180px', // Match the screen's height
+              objectFit: 'cover',
+              zIndex: '1', // Ensure it appears on top of the TV background
+              borderRadius: '10px'
+            }} 
+          />
+        </div>
 
         {/* Right Text Section */}
         <div style={{
@@ -85,24 +103,128 @@ const Mail: React.FC = () => {
       </div>
 
       {/* Mailing List Button */}
-      <button style={{
-        backgroundColor: 'transparent',
-        border: '2px solid #3c97a5',
-        color: 'white',
-        padding: '15px 20px',
-        borderRadius: '30px',
-        fontSize: '18px',
-        cursor: 'pointer',
-        marginTop: '30px',
-        width: '80%',  // Extended width
-        maxWidth: '1000px',
-        textAlign: 'center',
-        transition: 'all 0.3s ease-in-out'
-      }}
-      onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#3c97a5'}
-      onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
+      <button 
+        style={{
+          backgroundColor: 'transparent',
+          border: '2px solid #3c97a5',
+          color: 'white',
+          padding: '15px 20px',
+          borderRadius: '30px',
+          fontSize: '18px',
+          cursor: 'pointer',
+          marginTop: '30px',
+          width: '80%',  // Extended width
+          maxWidth: '1000px',
+          textAlign: 'center',
+          transition: 'all 0.3s ease-in-out'
+        }}
+        onClick={handleSignUpClick}
+        onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#3c97a5')}
+        onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+      >
         Sign Up Now
       </button>
+
+      {/* Popup for Email Sign-up */}
+      {isPopupVisible && (
+        <div style={{
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: '1000'
+        }}>
+          <div style={{
+            backgroundColor: '#1a1a1a',
+            padding: '30px',
+            borderRadius: '15px',
+            width: '350px',
+            textAlign: 'center',
+            boxShadow: '0px 0px 20px rgba(60, 151, 165, 0.5)',
+            border: '1px solid #3c97a5',
+            position: 'relative' // Added for positioning the close button
+          }}>
+            {/* Close Button (X) */}
+            <button
+              onClick={handleClosePopup}
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                backgroundColor: 'transparent',
+                border: 'none',
+                color: '#3c97a5',
+                fontSize: '20px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                transition: 'color 0.3s ease-in-out'
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.color = '#ff4d4d')}
+              onMouseOut={(e) => (e.currentTarget.style.color = '#3c97a5')}
+            >
+              X
+            </button>
+
+            <h2 style={{ 
+              color: '#3c97a5', 
+              fontSize: '24px', 
+              fontWeight: 'bold', 
+              marginBottom: '20px',
+              fontFamily: 'Arial, sans-serif'
+            }}>
+              Join the R.O.V Community
+            </h2>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  margin: '10px 0',
+                  borderRadius: '8px',
+                  border: '1px solid #3c97a5',
+                  backgroundColor: '#2a2a2a',
+                  color: 'white',
+                  fontSize: '14px',
+                  outline: 'none',
+                  transition: 'border-color 0.3s ease-in-out'
+                }}
+                onFocus={(e) => (e.target.style.borderColor = '#3c97a5')}
+                onBlur={(e) => (e.target.style.borderColor = '#3c97a5')}
+              />
+              <button 
+                type="submit" 
+                style={{
+                  backgroundColor: '#3c97a5',
+                  color: 'white',
+                  padding: '12px 24px',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: '16px',
+                  fontWeight: 'bold',
+                  marginTop: '15px',
+                  width: '100%',
+                  transition: 'background-color 0.3s ease-in-out'
+                }}
+                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#2c7a8a')}
+                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#3c97a5')}
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Images Section - Chakra & Collage */}
       <div style={{ 
@@ -171,24 +293,6 @@ const Mail: React.FC = () => {
           />
         </div>
       </div>
-
-      {/* Footer 
-      <div style={{ 
-        marginTop: '80px', 
-        display: 'flex', 
-        justifyContent: 'center', 
-        gap: '15px' 
-      }}>
-        <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer">
-          <img src="gmaillogo.png" alt="Gmail" style={{ width: '40px', height: '40px' }} />
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-          <img src="instalogo.png" alt="Instagram" style={{ width: '40px', height: '40px' }} />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <img src="xlogo.png" alt="Twitter" style={{ width: '40px', height: '40px' }} />
-        </a>
-      </div>*/}
 
     </div>
   );
