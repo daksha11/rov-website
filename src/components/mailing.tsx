@@ -5,20 +5,25 @@ import React, { useState } from 'react';
 const Mail: React.FC = () => {
   const [isPopupVisible, setPopupVisible] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
+  const [isSuccess, setSuccess] = useState<boolean>(false); // State for success animation
 
   const handleSignUpClick = (): void => {
     setPopupVisible(true);
+    setSuccess(false); // Reset success state when popup is opened
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    // Handle the email submission here
-    console.log('Email submitted:', email);
-    setPopupVisible(false); // Close the popup after submission
+    // Simulate a successful registration
+    setSuccess(true);
+    setTimeout(() => {
+      setPopupVisible(false); // Close the popup after 2 seconds
+      setSuccess(false); // Reset success state
+    }, 2000); // Delay to show the tick animation
   };
 
   const handleClosePopup = (): void => {
-    setPopupVisible(false); // Close the popup when X is clicked
+    setPopupVisible(false);
   };
 
   return (
@@ -147,7 +152,7 @@ const Mail: React.FC = () => {
             textAlign: 'center',
             boxShadow: '0px 0px 20px rgba(60, 151, 165, 0.5)',
             border: '1px solid #3c97a5',
-            position: 'relative' // Added for positioning the close button
+            position: 'relative'
           }}>
             {/* Close Button (X) */}
             <button
@@ -170,58 +175,98 @@ const Mail: React.FC = () => {
               X
             </button>
 
-            <h2 style={{ 
-              color: '#3c97a5', 
-              fontSize: '24px', 
-              fontWeight: 'bold', 
-              marginBottom: '20px',
-              fontFamily: 'Arial, sans-serif'
-            }}>
-              Join the R.O.V Community
-            </h2>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                style={{
-                  width: '100%',
-                  padding: '12px',
-                  margin: '10px 0',
-                  borderRadius: '8px',
-                  border: '1px solid #3c97a5',
-                  backgroundColor: '#2a2a2a',
-                  color: 'white',
-                  fontSize: '14px',
-                  outline: 'none',
-                  transition: 'border-color 0.3s ease-in-out'
-                }}
-                onFocus={(e) => (e.target.style.borderColor = '#3c97a5')}
-                onBlur={(e) => (e.target.style.borderColor = '#3c97a5')}
-              />
-              <button 
-                type="submit" 
-                style={{
-                  backgroundColor: '#3c97a5',
-                  color: 'white',
-                  padding: '12px 24px',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontSize: '16px',
-                  fontWeight: 'bold',
-                  marginTop: '15px',
-                  width: '100%',
-                  transition: 'background-color 0.3s ease-in-out'
-                }}
-                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#2c7a8a')}
-                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#3c97a5')}
-              >
-                Subscribe
-              </button>
-            </form>
+            {/* Success Tick Animation */}
+            {isSuccess ? (
+              <div style={{ textAlign: 'center' }}>
+                <div style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '50%',
+                  border: '3px solid #3c97a5',
+                  margin: '0 auto 20px',
+                  position: 'relative',
+                  animation: 'tickAnimation 0.6s ease-in-out'
+                }}>
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    width: '20px',
+                    height: '40px',
+                    borderBottom: '3px solid #3c97a5',
+                    borderRight: '3px solid #3c97a5',
+                    transform: 'translate(-50%, -60%) rotate(45deg)'
+                  }} />
+                </div>
+                <h2 style={{ 
+                  color: '#3c97a5', 
+                  fontSize: '24px', 
+                  fontWeight: 'bold', 
+                  marginBottom: '20px',
+                  fontFamily: 'Arial, sans-serif'
+                }}>
+                  Thank You!
+                </h2>
+                <p style={{ color: 'white', fontSize: '16px' }}>
+                  You've successfully subscribed.
+                </p>
+              </div>
+            ) : (
+              <>
+                <h2 style={{ 
+                  color: '#3c97a5', 
+                  fontSize: '24px', 
+                  fontWeight: 'bold', 
+                  marginBottom: '20px',
+                  fontFamily: 'Arial, sans-serif'
+                }}>
+                  Join the R.O.V Community
+                </h2>
+                <form onSubmit={handleSubmit}>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    style={{
+                      width: '100%',
+                      padding: '12px',
+                      margin: '10px 0',
+                      borderRadius: '8px',
+                      border: '1px solid #3c97a5',
+                      backgroundColor: '#2a2a2a',
+                      color: 'white',
+                      fontSize: '14px',
+                      outline: 'none',
+                      transition: 'border-color 0.3s ease-in-out'
+                    }}
+                    onFocus={(e) => (e.target.style.borderColor = '#3c97a5')}
+                    onBlur={(e) => (e.target.style.borderColor = '#3c97a5')}
+                  />
+                  <button 
+                    type="submit" 
+                    style={{
+                      backgroundColor: '#3c97a5',
+                      color: 'white',
+                      padding: '12px 24px',
+                      border: 'none',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                      fontSize: '16px',
+                      fontWeight: 'bold',
+                      marginTop: '15px',
+                      width: '100%',
+                      transition: 'background-color 0.3s ease-in-out'
+                    }}
+                    onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#2c7a8a')}
+                    onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#3c97a5')}
+                  >
+                    Subscribe
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
       )}
@@ -294,6 +339,22 @@ const Mail: React.FC = () => {
         </div>
       </div>
 
+      {/* CSS for Tick Animation */}
+      <style>
+        {`
+          @keyframes tickAnimation {
+            0% {
+              transform: scale(0);
+            }
+            50% {
+              transform: scale(1.2);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
