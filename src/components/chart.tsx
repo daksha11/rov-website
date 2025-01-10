@@ -124,6 +124,17 @@ const MixPlaylist = () => {
                 >
                   Song
                 </th>
+                <th
+                  style={{
+                    padding: "10px 0",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    borderBottom: "2px solid #fff",
+                    textAlign: "right",
+                  }}
+                >
+                  {/* Empty header for the color ball column */}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -131,8 +142,8 @@ const MixPlaylist = () => {
                 { artist: "dafes, Wada!", song: "Do it", color: "blue" },
                 { artist: "Adil Hassan, DDK", song: "Wanna Know", color: "cyan" },
                 { artist: "Adil Hasan", song: "LAST TIME", color: "green" },
-                { artist: "DDK", song: "Washed out", color: "orange" },
-                { artist: "Sniper J, DDK", song: "Kiss of Death", color: "gold" },
+                { artist: "DDK", song: "Washed out", color: "gold" },
+                { artist: "Sniper J, DDK", song: "Kiss of Death", color: "orange" },
               ].map((track, index) => (
                 <tr
                   key={index}
@@ -141,21 +152,21 @@ const MixPlaylist = () => {
                   }}
                 >
                   <td style={{ padding: "10px 0" }}>{track.artist}</td>
+                  <td style={{ padding: "10px 0" }}>{track.song}</td>
                   <td
                     style={{
                       padding: "10px 0",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "10px",
+                      textAlign: "right",
                     }}
                   >
-                    {track.song}
                     <div
                       style={{
-                        width: "15px",
-                        height: "15px",
+                        width: "20px", // Increased size
+                        height: "20px", // Increased size
                         borderRadius: "50%",
                         backgroundColor: track.color,
+                        display: "inline-block",
+                        marginLeft: "-10px", // Shifted slightly to the left
                       }}
                     ></div>
                   </td>

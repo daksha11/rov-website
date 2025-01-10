@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 
 function Gallery() {
   return (
@@ -8,7 +7,7 @@ function Gallery() {
         {/* Image Grid */}
         <div className="grid grid-cols-2 gap-24 mb-16">
           {/* First Image */}
-          <div className="rounded-lg overflow-hidden p-4">
+          <div className="rounded-lg overflow-hidden">
             <img
               src="/gallery1.png"
               alt="Artistic illustration"
