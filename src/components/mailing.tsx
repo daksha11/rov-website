@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Mail: React.FC = () => {
   const [isPopupVisible, setPopupVisible] = useState<boolean>(false);
@@ -343,7 +343,7 @@ const Mail: React.FC = () => {
         </div>
 
         {/* Album Covers Collage */}
-        <div style={{ position: 'relative', width: isMobile ? '200px' : '350px', height: isMobile ? '200px' : '350px' }}>
+        <div style={{ position: 'relative', width: isMobile ? '200px' : '350px', height: isMobile ? '200px' : '350px', marginBottom: "40px" }}>
           <img
             src="cover1.png"
             alt="Artwork 1"

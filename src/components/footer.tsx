@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <footer className="bg-black text-gray-200 font-mono shadow-lg w-full">
-      <div className="container mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container mx-auto px-6 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {/* Tools Section */}
         <div>
           <h2 className="text-lg font-semibold mb-4">Tools</h2>
@@ -45,14 +45,6 @@ const Footer = () => {
                 href="/services"
                 className="hover:text-emerald-500 transition-colors duration-300"
               >
-                Recording Studio
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/services"
-                className="hover:text-emerald-500 transition-colors duration-300"
-              >
                 Music Mixing
               </Link>
             </li>
@@ -64,6 +56,14 @@ const Footer = () => {
                 Mastering Services
               </Link>
             </li>
+            <li>
+              <Link
+                href="/services"
+                className="hover:text-emerald-500 transition-colors duration-300"
+              >
+                Cover Art / Graphics
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -72,15 +72,15 @@ const Footer = () => {
           <h2 className="text-lg font-semibold mb-4">Follow Us</h2>
           <div className="grid grid-cols-2 gap-4">
             <div>
-            <p className="mb-1">
-              <Link
-                href="mailto:rangeofviewmusic@gmail.com"
-                target="_blank"
-                className="hover:text-gray-500 transition-colors duration-300"
-              >
-                <i className="fas fa-envelope"></i> Email
-              </Link>
-            </p>
+              <p className="mb-1">
+                <Link
+                  href="mailto:rangeofviewmusic@gmail.com"
+                  target="_blank"
+                  className="hover:text-gray-500 transition-colors duration-300"
+                >
+                  <i className="fas fa-envelope"></i> Email
+                </Link>
+              </p>
               <p className="mb-1">
                 <Link href="https://x.com/rangeofviewmus1" target="_blank" className="hover:text-blue-400">
                   <i className="fab fa-twitter"></i> Twitter
@@ -88,12 +88,12 @@ const Footer = () => {
               </p>
               <p className="mb-1">
                 <Link
-                    href="https://tiktok.com"
-                    target="_blank"
-                    className="transition-colors duration-300"
-                    style={{ color: 'ffffff' }} // Default color
-                    onMouseEnter={(e) => e.currentTarget.style.color = '#25f4ee'} // Hover color
-                    onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'} // Reset on leave
+                  href="https://tiktok.com"
+                  target="_blank"
+                  className="transition-colors duration-300"
+                  style={{ color: 'ffffff' }} // Default color
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#25f4ee'} // Hover color
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'} // Reset on leave
                 >
                   TikTok
                 </Link>
@@ -118,8 +118,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-
       </div>
 
       {/* Copyright Section */}
