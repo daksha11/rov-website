@@ -20,8 +20,8 @@ export default function Home() {
        {/* <MixPlaylist />
         <Gallery />
         <Service />
-        <Cultures /> */}
-        <TeamMembersPage />
+        <Cultures />
+        <TeamMembersPage /> */}
         <Carousel />
         <Footer />
       </div>

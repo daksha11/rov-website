@@ -35,7 +35,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ imageUrl }) => {
           maxHeight: "100%",
           objectFit: "cover",
           borderRadius: "10px",
-          filter: isHovered ? "grayscale(50%)" : "none", // Apply grayscale on hover
+          filter: isHovered ? "grayscale(10%)" : "none", // Apply grayscale on hover
           transition: "filter 0.3s ease-in-out",
         }}
       />
@@ -65,8 +65,8 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ imageUrl }) => {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              backgroundColor: "#3c97a5",
-              color: "white",
+              backgroundColor: "#ffffff",
+              color: "black",
               padding: "12px 32px",
               borderRadius: "50px",
               cursor: "pointer",

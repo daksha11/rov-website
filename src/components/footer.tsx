@@ -127,7 +127,7 @@ const Footer = () => {
         className="text-gray-400 text-center py-4"
         style={{ backgroundColor: "rgba(22, 22, 23, 0.8)" }}
       >
-        <p>Copyright &copy; {new Date().getFullYear()} Range Of View. All rights reserved.</p>
+        <p>Copyright &copy; {new Date().getFullYear()} Range Of View Music. All rights reserved.</p>
       </div>
     </footer>
   );
