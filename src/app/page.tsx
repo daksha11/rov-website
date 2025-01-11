@@ -17,10 +17,10 @@ export default function Home() {
         <HeroScrollDemo />
         <VideoPage />
         <Mail />
-        <MixPlaylist />
+       {/* <MixPlaylist />
         <Gallery />
         <Service />
-        <Cultures />
+        <Cultures /> */}
         <TeamMembersPage />
         <Carousel />
         <Footer />

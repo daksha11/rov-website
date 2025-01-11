@@ -106,28 +106,35 @@ const Navbar = () => {
             onClick={toggleMenu}
             className="hover:text-gray-300 text-lg transition-colors duration-300"
           >
-            Services
+            Mix Playlist
           </Link>
           <Link
             href="/portfolio"
             onClick={toggleMenu}
             className="hover:text-gray-300 text-lg transition-colors duration-300"
           >
-            Portfolio
+            Gallery
           </Link>
           <Link
             href="/about"
             onClick={toggleMenu}
             className="hover:text-gray-300 text-lg transition-colors duration-300"
           >
-            About
+            Services
           </Link>
           <Link
             href="/contact"
             onClick={toggleMenu}
             className="hover:text-gray-300 text-lg transition-colors duration-300"
           >
-            Contact
+            Culture
+          </Link>
+          <Link
+            href="/contact"
+            onClick={toggleMenu}
+            className="hover:text-gray-300 text-lg transition-colors duration-300"
+          >
+            Members
           </Link>
         </nav>
       </div>

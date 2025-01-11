@@ -1,11 +1,26 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Mail: React.FC = () => {
   const [isPopupVisible, setPopupVisible] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [isSuccess, setSuccess] = useState<boolean>(false); // State for success animation
+  const [isMobile, setIsMobile] = useState<boolean>(false); // State to check if the screen is mobile
+
+  // Check if the screen is mobile-sized
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Check on initial render
+    window.addEventListener("resize", handleResize); // Update on window resize
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Cleanup
+    };
+  }, []);
 
   const handleSignUpClick = (): void => {
     setPopupVisible(true);
@@ -26,103 +41,144 @@ const Mail: React.FC = () => {
     setPopupVisible(false);
   };
 
+  // Responsive Styles
+  const headerStyle: React.CSSProperties = {
+    backgroundColor: '#3c97a5',
+    width: '100%',
+    padding: isMobile ? '10px 0' : '7px 0',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    fontSize: isMobile ? '20px' : '40px',
+    fontWeight: 'bold',
+    marginBottom: isMobile ? '50px' : '100px',
+    marginTop: '0',
+    flexWrap: isMobile ? 'wrap' : 'nowrap'
+  };
+
+  const tvContainerStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    width: '85%',
+    maxWidth: '900px',
+    marginTop: isMobile ? '20px' : '40px',
+    gap: isMobile ? '20px' : '30px'
+  };
+
+  const tvStyle: React.CSSProperties = {
+    position: 'relative',
+    width: isMobile ? '200px' : '300px',
+    height: isMobile ? '180px' : '270px',
+    backgroundImage: `url('tv.png')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+  };
+
+  const contentImageStyle: React.CSSProperties = {
+    position: 'absolute',
+    top: isMobile ? '20px' : '30px',
+    left: isMobile ? '20px' : '30px',
+    width: isMobile ? '150px' : '230px',
+    height: isMobile ? '120px' : '180px',
+    objectFit: 'cover',
+    zIndex: '1',
+    borderRadius: '10px'
+  };
+
+  const rightTextStyle: React.CSSProperties = {
+    maxWidth: '400px',
+    textAlign: isMobile ? 'center' : 'right',
+    fontSize: isMobile ? '24px' : '35px',
+    fontWeight: 'bold',
+    color: '#3c97a5',
+    paddingLeft: isMobile ? '0' : '60px'
+  };
+
+  const buttonStyle: React.CSSProperties = {
+    backgroundColor: 'transparent',
+    border: '2px solid #3c97a5',
+    color: 'white',
+    padding: '15px 20px',
+    borderRadius: '30px',
+    fontSize: isMobile ? '16px' : '18px',
+    cursor: 'pointer',
+    marginTop: isMobile ? '20px' : '30px',
+    width: '80%',
+    maxWidth: '1000px',
+    textAlign: 'center',
+    transition: 'all 0.3s ease-in-out'
+  };
+
+  const imagesContainerStyle: React.CSSProperties = {
+    marginTop: isMobile ? '20px' : '40px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '85%',
+    maxWidth: '900px',
+    flexWrap: 'wrap',
+    gap: isMobile ? '50px' : '130px'
+  };
+
+  const chakraImageStyle: React.CSSProperties = {
+    width: isMobile ? '150px' : '250px',
+    height: isMobile ? '200px' : '350px',
+    objectFit: 'contain'
+  };
+
+  const collageImageStyle = (top: string, left: string, transform: string, zIndex: number): React.CSSProperties => ({
+    width: isMobile ? '120px' : '180px',
+    height: isMobile ? '120px' : '180px',
+    objectFit: 'cover',
+    position: 'absolute',
+    top: isMobile ? `calc(${top} / 2)` : top,
+    left: isMobile ? `calc(${left} / 2)` : left,
+    transform: transform,
+    zIndex: zIndex
+  });
+
   return (
-    <div style={{ 
-      backgroundColor: 'black', 
-      color: 'white', 
-      fontFamily: 'Arial, sans-serif', 
+    <div style={{
+      backgroundColor: 'black',
+      color: 'white',
+      fontFamily: 'Arial, sans-serif',
       padding: '20px 0',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       textAlign: 'center'
     }}>
-      
+
       {/* Header */}
-      <div style={{ 
-        backgroundColor: '#3c97a5', 
-        width: '100%', 
-        padding: '7px 0 7px',
-        display: 'flex',
-        justifyContent: 'space-around',  
-        alignItems: 'center',
-        fontSize: '40px',
-        fontWeight: 'bold',
-        marginBottom: '100px',
-        marginTop: '0'
-      }}>
+      <div style={headerStyle}>
         <span>RANGE OF VIEW</span>
         <span>RANGE OF VIEW</span>
-        <span>RANGE OF VIEW</span>
+        {!isMobile && <span>RANGE OF VIEW</span>} {/* Conditionally render the third span */}
       </div>
 
       {/* TV and Right Text Container */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        width: '85%',
-        maxWidth: '900px',
-        marginTop: '40px',
-        gap: '30px'
-      }}>
-        
+      <div style={tvContainerStyle}>
+
         {/* TV Section */}
-        <div style={{
-          position: 'relative',
-          width: '300px',
-          height: '270px',
-          backgroundImage: `url('tv.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}>
-          {/* Content Image */}
-          <img 
-            src="cover2.png" 
-            alt="Content inside TV" 
-            style={{
-              position: 'absolute',
-              top: '30px', // Adjust to align with the TV screen
-              left: '30px', // Adjust to align with the TV screen
-              width: '230px', // Match the screen's width
-              height: '180px', // Match the screen's height
-              objectFit: 'cover',
-              zIndex: '1', // Ensure it appears on top of the TV background
-              borderRadius: '10px'
-            }} 
+        <div style={tvStyle}>
+          <img
+            src="cover2.png"
+            alt="Content inside TV"
+            style={contentImageStyle}
           />
         </div>
 
         {/* Right Text Section */}
-        <div style={{
-          maxWidth: '400px',
-          textAlign: 'right',
-          fontSize: '35px',
-          fontWeight: 'bold',
-          color: '#3c97a5',
-          paddingLeft: '60px'
-        }}>
+        <div style={rightTextStyle}>
           Catch the latest updates about R.O.V by signing yourself up on our email list.
         </div>
       </div>
 
       {/* Mailing List Button */}
-      <button 
-        style={{
-          backgroundColor: 'transparent',
-          border: '2px solid #3c97a5',
-          color: 'white',
-          padding: '15px 20px',
-          borderRadius: '30px',
-          fontSize: '18px',
-          cursor: 'pointer',
-          marginTop: '30px',
-          width: '80%',  // Extended width
-          maxWidth: '1000px',
-          textAlign: 'center',
-          transition: 'all 0.3s ease-in-out'
-        }}
+      <button
+        style={buttonStyle}
         onClick={handleSignUpClick}
         onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#3c97a5')}
         onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
@@ -148,7 +204,7 @@ const Mail: React.FC = () => {
             backgroundColor: '#1a1a1a',
             padding: '30px',
             borderRadius: '15px',
-            width: '350px',
+            width: isMobile ? '80%' : '350px',
             textAlign: 'center',
             boxShadow: '0px 0px 20px rgba(60, 151, 165, 0.5)',
             border: '1px solid #3c97a5',
@@ -198,10 +254,10 @@ const Mail: React.FC = () => {
                     transform: 'translate(-50%, -60%) rotate(45deg)'
                   }} />
                 </div>
-                <h2 style={{ 
-                  color: '#3c97a5', 
-                  fontSize: '24px', 
-                  fontWeight: 'bold', 
+                <h2 style={{
+                  color: '#3c97a5',
+                  fontSize: '24px',
+                  fontWeight: 'bold',
                   marginBottom: '20px',
                   fontFamily: 'Arial, sans-serif'
                 }}>
@@ -213,10 +269,10 @@ const Mail: React.FC = () => {
               </div>
             ) : (
               <>
-                <h2 style={{ 
-                  color: '#3c97a5', 
-                  fontSize: '24px', 
-                  fontWeight: 'bold', 
+                <h2 style={{
+                  color: '#3c97a5',
+                  fontSize: '24px',
+                  fontWeight: 'bold',
                   marginBottom: '20px',
                   fontFamily: 'Arial, sans-serif'
                 }}>
@@ -244,8 +300,8 @@ const Mail: React.FC = () => {
                     onFocus={(e) => (e.target.style.borderColor = '#3c97a5')}
                     onBlur={(e) => (e.target.style.borderColor = '#3c97a5')}
                   />
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     style={{
                       backgroundColor: '#3c97a5',
                       color: 'white',
@@ -272,68 +328,62 @@ const Mail: React.FC = () => {
       )}
 
       {/* Images Section - Chakra & Collage */}
-      <div style={{ 
-        marginTop: '40px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '85%',
-        maxWidth: '900px',
-        flexWrap: 'wrap',
-        gap: '130px'
-      }}>
-        
+      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', gap: isMobile ? '20px' : '50px', marginTop: isMobile ? '30px' : '50px' }}>
         {/* Chakra Image */}
         <div>
           <img
             src="chakra.png"
             alt="Chakra"
-            style={{ width: '250px', height: '350px', objectFit: 'contain' }}
+            style={{
+              width: isMobile ? '150px' : '250px',
+              height: isMobile ? '200px' : '350px',
+              objectFit: 'contain'
+            }}
           />
         </div>
 
         {/* Album Covers Collage */}
-        <div style={{ position: 'relative', width: '350px', height: '350px' }}> 
+        <div style={{ position: 'relative', width: isMobile ? '200px' : '350px', height: isMobile ? '200px' : '350px' }}>
           <img
             src="cover1.png"
             alt="Artwork 1"
-            style={{ 
-              width: '200px', 
-              height: '200px', 
-              objectFit: 'cover', 
-              position: 'absolute', 
-              top: '10px', 
-              left: '20px', 
-              transform: 'rotate(-15deg)', 
-              zIndex: '1' 
+            style={{
+              width: isMobile ? '120px' : '180px',
+              height: isMobile ? '120px' : '180px',
+              objectFit: 'cover',
+              position: 'absolute',
+              top: isMobile ? '20px' : '40px',
+              left: isMobile ? '10px' : '30px',
+              transform: 'rotate(-15deg)',
+              zIndex: 1,
             }}
           />
           <img
             src="rov_album_3.webp"
             alt="Artwork 2"
-            style={{ 
-              width: '200px', 
-              height: '200px', 
-              objectFit: 'cover', 
-              position: 'absolute', 
-              top: '60px', 
-              right: '10px', 
-              transform: 'rotate(10deg)', 
-              zIndex: '2' 
+            style={{
+              width: isMobile ? '120px' : '180px',
+              height: isMobile ? '120px' : '180px',
+              objectFit: 'cover',
+              position: 'absolute',
+              top: isMobile ? '50px' : '80px',
+              left: isMobile ? '70px' : '100px',
+              transform: 'rotate(10deg)',
+              zIndex: 2,
             }}
           />
           <img
             src="cover2.png"
             alt="Artwork 3"
-            style={{ 
-              width: '200px', 
-              height: '200px', 
-              objectFit: 'cover', 
-              position: 'absolute', 
-              bottom: '10px', 
-              left: '40px', 
-              transform: 'rotate(25deg)', 
-              zIndex: '3' 
+            style={{
+              width: isMobile ? '120px' : '180px',
+              height: isMobile ? '120px' : '180px',
+              objectFit: 'cover',
+              position: 'absolute',
+              top: isMobile ? '90px' : '140px',
+              left: isMobile ? '30px' : '60px',
+              transform: 'rotate(25deg)',
+              zIndex: 3,
             }}
           />
         </div>
