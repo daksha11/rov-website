@@ -18,9 +18,9 @@ export default function Home() {
         <VideoPage />
         <Mail />
        {/* <MixPlaylist />*/}
+       <Service />
         <Gallery />
-       {/* <Service />
-        <Cultures />
+        {/* <Cultures />
         <TeamMembersPage /> */}
         <Carousel />
         <Footer />

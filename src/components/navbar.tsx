@@ -39,13 +39,13 @@ const Navbar = () => {
             Home
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <Link
+          {/*<Link
             href="/services"
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Mix Playlist
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
-          </Link>
+          </Link>*/}
           <Link
             href="/services"
             className="relative group hover:text-amber-400 transition-colors duration-300"
@@ -60,7 +60,7 @@ const Navbar = () => {
             Services
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </Link>
-          <Link
+          {/*<Link
             href="/about"
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
@@ -73,7 +73,7 @@ const Navbar = () => {
           >
             Members
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
-          </Link>
+          </Link>*/}
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -101,13 +101,13 @@ const Navbar = () => {
           >
             Home
           </Link>
-          <Link
+          {/*<Link
             href="/services"
             onClick={toggleMenu}
             className="hover:text-gray-300 text-lg transition-colors duration-300"
           >
             Mix Playlist
-          </Link>
+          </Link>*/}
           <Link
             href="/portfolio"
             onClick={toggleMenu}
@@ -122,7 +122,7 @@ const Navbar = () => {
           >
             Services
           </Link>
-          <Link
+          {/*<Link
             href="/contact"
             onClick={toggleMenu}
             className="hover:text-gray-300 text-lg transition-colors duration-300"
@@ -135,7 +135,7 @@ const Navbar = () => {
             className="hover:text-gray-300 text-lg transition-colors duration-300"
           >
             Members
-          </Link>
+          </Link>*/}
         </nav>
       </div>
     </header>
