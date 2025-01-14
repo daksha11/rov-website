@@ -27,14 +27,38 @@ const Mail: React.FC = () => {
     setSuccess(false); // Reset success state when popup is opened
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
-    // Simulate a successful registration
-    setSuccess(true);
-    setTimeout(() => {
-      setPopupVisible(false); // Close the popup after 2 seconds
-      setSuccess(false); // Reset success state
-    }, 2000); // Delay to show the tick animation
+    
+    try {
+      const response = await fetch('http://localhost:5000/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Success:', result);
+  
+        // Simulate a successful registration
+        setSuccess(true);
+        setTimeout(() => {
+          setPopupVisible(false); // Close the popup after 2 seconds
+          setSuccess(false); // Reset success state
+        }, 2000); // Delay to show the tick animation
+      } else {
+        const error = await response.json();
+        console.error('Error:', error.message);
+        alert(`Error: ${error.message}`);
+      }
+    } catch (error) {
+      console.error('Network Error:', error);
+      alert('A network error occurred. Please try again later.');
+    }
+
   };
 
   const handleClosePopup = (): void => {
