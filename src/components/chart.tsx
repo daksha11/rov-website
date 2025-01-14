@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Card from "./ui/musicplayer";
 
 const MixPlaylist = () => {
@@ -25,7 +25,7 @@ const MixPlaylist = () => {
   }, []);
 
   return (
-    <div
+    <div id="mix-playlist"
       style={{
         display: "flex",
         flexDirection: "column",

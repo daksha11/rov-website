@@ -3,7 +3,7 @@ import React from "react";
 
 function Service() {
   return (
-    <div className="min-h-screen bg-black p-8 md:p-16">
+    <div className="min-h-screen bg-black p-8 md:p-16" id="services">
       <div className="max-w-5xl mx-auto">
         {/* Centered Services Title */}
         <h1 className="text-white text-4xl md:text-6xl font-bold text-center mb-12 md:mb-24">

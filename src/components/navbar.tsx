@@ -10,6 +10,18 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const scrollToSection = (id: string) => {
+    console.log(`Scrolling to section with id: ${id}`); // Debugging
+    const element = document.getElementById(id);
+    if (element) {
+      console.log("Element found:", element); // Debugging
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.error(`Element with id "${id}" not found.`); // Debugging
+    }
+    setIsOpen(false); // Close the mobile menu after clicking a link
+  };
+
   return (
     <header
       className="fixed w-full z-50 font-mono shadow-lg"
@@ -23,7 +35,7 @@ const Navbar = () => {
               src="/Gear_Up_Design.png"
               alt="Gear Up Design Logo"
               width={40}
-              height={40} 
+              height={40}
               className="rounded-full"
             />
           </Link>
@@ -31,49 +43,48 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-8 text-lg text-white">
-          <Link
-              href="/"
-              onClick={toggleMenu}
-              className="relative group hover:text-amber-400 transition-colors duration-300"
-            >
+          <button
+            onClick={() => scrollToSection("home")}
+            className="relative group hover:text-amber-400 transition-colors duration-300"
+          >
             Home
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
-          </Link>
-          {/*<Link
-            href="/services"
+          </button>
+          {/*<button
+            onClick={() => scrollToSection("mix-playlist")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Mix Playlist
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
-          </Link>*/}
-          <Link
-            href="/services"
-            className="relative group hover:text-amber-400 transition-colors duration-300"
-          >
-            Gallery
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
-          </Link>
-          <Link
-            href="/portfolio"
+          </button>*/}
+          <button
+            onClick={() => scrollToSection("services")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Services
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
-          </Link>
-          {/*<Link
-            href="/about"
+          </button>
+          {/*<button
+            onClick={() => scrollToSection("gallery")}
+            className="relative group hover:text-amber-400 transition-colors duration-300"
+          >
+            Gallery
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
+          </button>
+          <button
+            onClick={() => scrollToSection("culture")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Culture
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
-          </Link>
-          <Link
-            href="/contact"
+          </button>*/}
+          <button
+            onClick={() => scrollToSection("members")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Members
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
-          </Link>*/}
+          </button>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -94,48 +105,42 @@ const Navbar = () => {
         style={{ backgroundColor: "rgba(22, 22, 23, 0.8)" }}
       >
         <nav className="flex flex-col text-gray-100 space-y-4 p-4">
-          <Link
-            href="/"
-            onClick={toggleMenu}
-            className="hover:text-gray-300 text-lg transition-colors duration-300"
+          <button
+            onClick={() => scrollToSection("home")}
+            className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Home
-          </Link>
-          {/*<Link
-            href="/services"
-            onClick={toggleMenu}
-            className="hover:text-gray-300 text-lg transition-colors duration-300"
+          </button>
+          {/*<button
+            onClick={() => scrollToSection("mix-playlist")}
+            className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Mix Playlist
-          </Link>*/}
-          <Link
-            href="/portfolio"
-            onClick={toggleMenu}
-            className="hover:text-gray-300 text-lg transition-colors duration-300"
-          >
-            Gallery
-          </Link>
-          <Link
-            href="/about"
-            onClick={toggleMenu}
-            className="hover:text-gray-300 text-lg transition-colors duration-300"
+          </button>*/}
+          <button
+            onClick={() => scrollToSection("services")}
+            className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Services
-          </Link>
-          {/*<Link
-            href="/contact"
-            onClick={toggleMenu}
-            className="hover:text-gray-300 text-lg transition-colors duration-300"
+          </button>
+          {/*<button
+            onClick={() => scrollToSection("gallery")}
+            className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
+          >
+            Gallery
+          </button>
+          <button
+            onClick={() => scrollToSection("culture")}
+            className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Culture
-          </Link>
-          <Link
-            href="/contact"
-            onClick={toggleMenu}
-            className="hover:text-gray-300 text-lg transition-colors duration-300"
+          </button>*/}
+          <button
+            onClick={() => scrollToSection("members")}
+            className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Members
-          </Link>*/}
+          </button>
         </nav>
       </div>
     </header>

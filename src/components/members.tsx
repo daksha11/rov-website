@@ -1,7 +1,24 @@
 "use client";
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 
 const TeamMembersPage = () => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  // Check if the screen is mobile-sized
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Check on initial render
+    window.addEventListener("resize", handleResize); // Update on window resize
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Cleanup
+    };
+  }, []);
+
   const teamMembers = [
     { id: 'member1', image: '/temp.png' },
     { id: 'member2', image: '/temp.png' },
@@ -10,18 +27,29 @@ const TeamMembersPage = () => {
     { id: 'member5', image: '/temp.png' }
   ];
 
+  // Header Style
+  const headerStyle: React.CSSProperties = {
+    backgroundColor: '#ff96ee',
+    width: '100%',
+    padding: isMobile ? '10px 0' : '7px 0',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    fontSize: isMobile ? '20px' : '40px',
+    fontWeight: 'bold',
+    marginBottom: isMobile ? '50px' : '100px',
+    marginTop: '0',
+    flexWrap: isMobile ? 'wrap' : 'nowrap',
+    color: "black"
+  };
+
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black" id='members' style={{ paddingTop: '50px' }}> {/* Added padding-top for gap */}
       {/* Header */}
-      <div className="px-4 flex items-center h-24" style={{backgroundColor:"#ff96ee"}}>
-        <div className="flex items-center gap-3 w-full justify-center">
-          <img 
-            src="/logoblack.png" 
-            alt="Company Logo" 
-            className="w-20 h-20 object-contain"
-          />
-          <h1 className="text-2xl text-black m-0 font-normal">Team Members</h1>
-        </div>
+      <div style={headerStyle}>
+        <span>RANGE OF VIEW</span>
+        <span>RANGE OF VIEW</span>
+        {!isMobile && <span>RANGE OF VIEW</span>} {/* Conditionally render the third span */}
       </div>
 
       {/* Grid Container with wider spacing */}

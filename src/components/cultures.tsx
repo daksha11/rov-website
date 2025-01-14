@@ -1,9 +1,8 @@
 "use client"
-import React from 'react';
 
 const Cultures = () => {
   return (
-    <div className="min-h-screen p-6">
+    <div className="min-h-screen p-6" id='culture'>
       {/* Header */}
       <div className="flex items-center justify-center gap-3 mb-45">
         <img src="Gear_Up_Design.png" alt="ROV Logo" className="h-64 w-auto" />

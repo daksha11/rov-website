@@ -4,7 +4,7 @@ import { ContainerScroll } from "./ui/controller-scroll-animation";
 
 export function HeroScrollDemo() {
   return (
-    <div className="flex flex-col overflow-hidden" style={{ marginBottom: "0" }}>
+    <div className="flex flex-col overflow-hidden" style={{ marginBottom: "0" }} id="home">
       <ContainerScroll
         titleComponent={
           <>

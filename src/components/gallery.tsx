@@ -2,7 +2,7 @@
 
 function Gallery() {
   return (
-    <div className="min-h-screen bg-black p-4 sm:p-8 md:p-16">
+    <div className="min-h-screen bg-black p-4 sm:p-8 md:p-16" id="gallery">
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         {/* Top Two Images Side by Side */}
         <div className="grid grid-cols-2 gap-4 sm:gap-8 md:gap-16 mb-8 sm:mb-16">

@@ -17,11 +17,11 @@ export default function Home() {
         <HeroScrollDemo />
         <VideoPage />
         <Mail />
-       {/* <MixPlaylist />*/}
-       <Service />
-        <Gallery />
-        {/* <Cultures />
-        <TeamMembersPage /> */}
+        {/*<MixPlaylist />*/}
+        <Service />
+        {/*<Gallery />
+        <Cultures />*/}
+        <TeamMembersPage />
         <Carousel />
         <Footer />
       </div>
