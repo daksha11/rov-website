@@ -50,13 +50,13 @@ const Navbar = () => {
             Home
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </button>
-          {/*<button
+          <button
             onClick={() => scrollToSection("mix-playlist")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Mix Playlist
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
-          </button>*/}
+          </button>
           <button
             onClick={() => scrollToSection("services")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
@@ -111,12 +111,12 @@ const Navbar = () => {
           >
             Home
           </button>
-          {/*<button
+          <button
             onClick={() => scrollToSection("mix-playlist")}
             className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Mix Playlist
-          </button>*/}
+          </button>
           <button
             onClick={() => scrollToSection("services")}
             className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
