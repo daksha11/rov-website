@@ -111,6 +111,12 @@ const StyledWrapper = styled.div`
     background: #00000;
     border-radius: 16px;
     padding: 20px;
+
+    @media (max-width: 768px) {
+      width: 302px;
+      height:230px;
+      padding: 15px;
+    }
   }
 
   .top {
@@ -119,6 +125,13 @@ const StyledWrapper = styled.div`
     display: flex;
     gap: 20px;
     margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+      flex-direction: row; /* Ensure the "playing" card stays to the left */
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
   }
 
   .pfp {
@@ -133,18 +146,47 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 768px) {
+      margin-right: 10px; /* Reduce margin for mobile */
+      top: 0;
+      left: 0;
+      height: 80px; /* Adjust size for mobile */
+      width: 80px;
+    }
+  }
+
+  .texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1; /* Ensure the text takes up the remaining space */
   }
 
   .title-1 {
     color: white;
     font-size: 40px;
     font-weight: bolder;
+    margin: 0; /* Remove default margin */
+    line-height: 1.2; /* Adjust line height for better alignment */
+
+    @media (max-width: 768px) {
+      font-size: 30px;
+      text-align: left; /* Ensure text aligns to the left */
+    }
   }
 
   .title-2 {
     color: white;
     font-size: 20px;
     font-weight: bold;
+    margin: 0; /* Remove default margin */
+    line-height: 1.2; /* Adjust line height for better alignment */
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      text-align: left; /* Ensure text aligns to the left */
+    }
   }
 
   .time {
@@ -156,6 +198,12 @@ const StyledWrapper = styled.div`
     left: 5%;
     bottom: 40px;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      left: 0;
+      bottom: 30px;
+    }
   }
 
   .elapsed {
@@ -175,12 +223,21 @@ const StyledWrapper = styled.div`
     padding: 20px;
     width: 100%;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      bottom: 50px;
+      padding: 10px;
+    }
   }
 
   .control-group {
     display: flex;
     gap: 32px;
     align-items: center;
+
+    @media (max-width: 768px) {
+      gap: 20px;
+    }
   }
 
   .controls svg {
@@ -188,6 +245,11 @@ const StyledWrapper = styled.div`
     transition: 0.1s;
     width: 48px;
     height: 48px;
+
+    @media (max-width: 768px) {
+      width: 36px;
+      height: 36px;
+    }
   }
 
   .controls svg:hover {
@@ -198,16 +260,30 @@ const StyledWrapper = styled.div`
     color: white;
     font-size: 14px;
     position: absolute;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
 
   .time_now {
     bottom: 20px;
     left: 20px;
+
+    @media (max-width: 768px) {
+      bottom: 10px;
+      left: 10px;
+    }
   }
 
   .time_full {
     bottom: 20px;
     right: 20px;
+
+    @media (max-width: 768px) {
+      bottom: 10px;
+      right: 10px;
+    }
   }
 
   .playing {
@@ -215,7 +291,7 @@ const StyledWrapper = styled.div`
     position: relative;
     justify-content: center;
     gap: 4px;
-    width: 50px;
+    width: 70px;
     height: 40px;
   }
 

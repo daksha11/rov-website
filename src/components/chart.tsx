@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Card from "./ui/musicplayer";
 
 const MixPlaylist = () => {
-  // Add the spinning effect CSS only on the client side
   useEffect(() => {
     const style = document.createElement("style");
     style.innerHTML = `
@@ -15,17 +14,57 @@ const MixPlaylist = () => {
           transform: rotate(360deg);
         }
       }
+      @media (max-width: 768px) {
+        #mix-playlist {
+          padding: 10px;
+        }
+        .header-container {
+          justify-content: center !important;
+          padding-right: 0 !important;
+          text-align: center;
+        }
+        .header-container h1 {
+          font-size: 24px !important; /* Decreased font size for the title */
+        }
+        .header-container div {
+          font-size: 30px !important; /* Decreased font size for the "MIX" circle */
+        }
+        .playlist-container {
+          flex-direction: column !important;
+          align-items: center !important;
+          gap: 20px !important;
+          width: 90% !important; /* Increased width of the playlist container */
+        }
+        .album-art {
+          width: 60% !important; /* Decreased size of the album art */
+          height: auto !important;
+        }
+        .tv-container {
+          width: 100% !important;
+          height: auto !important;
+        }
+        .vinyl {
+          width: 250px !important;
+          height: 250px !important; /* Ensures it remains a perfect circle */
+        }
+        table {
+          font-size: 18px !important; /* Increased font size for the playlist table */
+          width: 320px !important; /* Ensures the table takes full width */
+        }
+        th, td {
+          padding: 15px 0 !important; /* Increased padding for better spacing */
+        }
+      }
     `;
     document.head.appendChild(style);
-
-    // Clean up the style when the component unmounts
     return () => {
       document.head.removeChild(style);
     };
   }, []);
 
   return (
-    <div id="mix-playlist"
+    <div
+      id="mix-playlist"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -36,8 +75,8 @@ const MixPlaylist = () => {
         padding: "20px",
       }}
     >
-      {/* Header */}
       <div
+        className="header-container"
         style={{
           display: "flex",
           justifyContent: "flex-end",
@@ -65,8 +104,8 @@ const MixPlaylist = () => {
         </div>
       </div>
 
-      {/* Playlist Container */}
       <div
+        className="playlist-container"
         style={{
           display: "flex",
           width: "100%",
@@ -75,8 +114,8 @@ const MixPlaylist = () => {
           alignItems: "flex-start",
         }}
       >
-        {/* Album Art */}
         <div
+          className="album-art"
           style={{
             flex: "1",
             borderRadius: "10px",
@@ -91,7 +130,6 @@ const MixPlaylist = () => {
           />
         </div>
 
-        {/* Playlist */}
         <div style={{ flex: "2", display: "flex", flexDirection: "column" }}>
           <table
             style={{
@@ -104,37 +142,16 @@ const MixPlaylist = () => {
           >
             <thead>
               <tr style={{ borderBottom: "2px solid #fff" }}>
+                <th style={{ padding: "10px 0", fontWeight: "bold", fontSize: "18px" }}>Artist</th>
+                <th style={{ padding: "10px 0", fontWeight: "bold", fontSize: "18px" }}>Song</th>
                 <th
                   style={{
                     padding: "10px 0",
                     fontWeight: "bold",
                     fontSize: "18px",
-                    borderBottom: "2px solid #fff",
-                  }}
-                >
-                  Artist
-                </th>
-                <th
-                  style={{
-                    padding: "10px 0",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    borderBottom: "2px solid #fff",
-                  }}
-                >
-                  Song
-                </th>
-                <th
-                  style={{
-                    padding: "10px 0",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    borderBottom: "2px solid #fff",
                     textAlign: "right",
                   }}
-                >
-                  {/* Empty header for the color ball column */}
-                </th>
+                ></th>
               </tr>
             </thead>
             <tbody>
@@ -153,20 +170,15 @@ const MixPlaylist = () => {
                 >
                   <td style={{ padding: "10px 0" }}>{track.artist}</td>
                   <td style={{ padding: "10px 0" }}>{track.song}</td>
-                  <td
-                    style={{
-                      padding: "10px 0",
-                      textAlign: "right",
-                    }}
-                  >
+                  <td style={{ padding: "10px 0", textAlign: "right" }}>
                     <div
                       style={{
-                        width: "20px", // Increased size
-                        height: "20px", // Increased size
+                        width: "20px",
+                        height: "20px",
                         borderRadius: "50%",
                         backgroundColor: track.color,
                         display: "inline-block",
-                        marginLeft: "-10px", // Shifted slightly to the left
+                        marginLeft: "-10px",
                       }}
                     ></div>
                   </td>
@@ -177,13 +189,13 @@ const MixPlaylist = () => {
         </div>
       </div>
 
-      {/* TV Container with Spinning Vinyl */}
       <div
+        className="tv-container"
         style={{
           marginTop: "50px",
           position: "relative",
-          width: "600px", // Adjust based on your TV image size
-          height: "650px", // Adjust based on your TV image size
+          width: "600px",
+          height: "650px",
           backgroundImage: "url('/player.png')",
           backgroundSize: "contain",
           backgroundPosition: "center",
@@ -194,8 +206,8 @@ const MixPlaylist = () => {
           justifyContent: "center",
         }}
       >
-        {/* Spinning Vinyl */}
         <div
+          className="vinyl"
           style={{
             width: "470px",
             height: "470px",
@@ -219,14 +231,6 @@ const MixPlaylist = () => {
             }}
           />
         </div>
-
-        {/* Player */}
-        <div
-          style={{
-            transform: "scale(0.9)", // Slightly reduce size to fit TV
-            marginTop: "0px", // Fine-tune position
-          }}
-        ></div>
       </div>
       <Card />
     </div>

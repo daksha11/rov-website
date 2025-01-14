@@ -17,7 +17,7 @@ export default function Home() {
         <HeroScrollDemo />
         <VideoPage />
         <Mail />
-        {/*<MixPlaylist />*/}
+        <MixPlaylist />
         <Service />
         {/*<Gallery />
         <Cultures />*/}
