@@ -110,83 +110,21 @@ const MixPlaylist = () => {
           display: "flex",
           width: "100%",
           maxWidth: "1000px",
-          gap: "150px",
-          alignItems: "flex-start",
+          gap: "20px",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        <div
-          className="album-art"
-          style={{
-            flex: "1",
-            borderRadius: "10px",
-            overflow: "hidden",
-            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.5)",
-          }}
-        >
-          <img
-            src="/cover3.png"
-            alt="Album Art"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        </div>
-
-        <div style={{ flex: "2", display: "flex", flexDirection: "column" }}>
-          <table
-            style={{
-              width: "100%",
-              textAlign: "left",
-              borderCollapse: "collapse",
-              fontSize: "16px",
-              lineHeight: "1.5",
-            }}
-          >
-            <thead>
-              <tr style={{ borderBottom: "2px solid #fff" }}>
-                <th style={{ padding: "10px 0", fontWeight: "bold", fontSize: "18px" }}>Artist</th>
-                <th style={{ padding: "10px 0", fontWeight: "bold", fontSize: "18px" }}>Song</th>
-                <th
-                  style={{
-                    padding: "10px 0",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    textAlign: "right",
-                  }}
-                ></th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                { artist: "dafes, Wada!", song: "Do it", color: "blue" },
-                { artist: "Adil Hassan, DDK", song: "Wanna Know", color: "cyan" },
-                { artist: "Adil Hasan", song: "LAST TIME", color: "green" },
-                { artist: "DDK", song: "Washed out", color: "gold" },
-                { artist: "Sniper J, DDK", song: "Kiss of Death", color: "orange" },
-              ].map((track, index) => (
-                <tr
-                  key={index}
-                  style={{
-                    borderBottom: index !== 5 ? "1px solid #fff" : "none",
-                  }}
-                >
-                  <td style={{ padding: "10px 0" }}>{track.artist}</td>
-                  <td style={{ padding: "10px 0" }}>{track.song}</td>
-                  <td style={{ padding: "10px 0", textAlign: "right" }}>
-                    <div
-                      style={{
-                        width: "20px",
-                        height: "20px",
-                        borderRadius: "50%",
-                        backgroundColor: track.color,
-                        display: "inline-block",
-                        marginLeft: "-10px",
-                      }}
-                    ></div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <iframe
+          style={{ borderRadius: "12px" }}
+          src="https://open.spotify.com/embed/playlist/6itkDdZEJw54d6ppIlXjgg?utm_source=generator&theme=0"
+          width="100%"
+          height="562" 
+          frameBorder="0"
+          allowFullScreen // Updated to camelCase for TypeScript
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
       </div>
 
       <div
@@ -232,7 +170,7 @@ const MixPlaylist = () => {
           />
         </div>
       </div>
-      <Card />
+      {/*<Card />*/}
     </div>
   );
 };
