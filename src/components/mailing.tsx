@@ -7,6 +7,7 @@ const Mail: React.FC = () => {
   const [isPopupVisible, setPopupVisible] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [isSuccess, setSuccess] = useState<boolean>(false); // State for success animation
+  const [isDuplicate, setDuplicate] = useState<boolean>(false); // State for duplicate email
   const [isMobile, setIsMobile] = useState<boolean>(false); // State to check if the screen is mobile
 
   // Check if the screen is mobile-sized
@@ -26,6 +27,7 @@ const Mail: React.FC = () => {
   const handleSignUpClick = (): void => {
     setPopupVisible(true);
     setSuccess(false); // Reset success state when popup is opened
+    setDuplicate(false); // Reset duplicate state when popup is opened
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -39,17 +41,31 @@ const Mail: React.FC = () => {
 
     try {
       // Send the email to the backend
-      await axios.post('http://localhost:5000/subscribe', { email });
+      const response = await axios.post('http://localhost:5000/subscribe', { email });
 
       // Simulate a successful registration
       setSuccess(true);
+      setDuplicate(false); // Reset duplicate state
       setTimeout(() => {
         setPopupVisible(false); // Close the popup after 2 seconds
         setSuccess(false); // Reset success state
       }, 2000); // Delay to show the tick animation
-    } catch (error) {
-      console.error('Error subscribing:', error);
-      alert('Failed to subscribe. Please try again.');
+    } catch (error: any) {
+      if (axios.isAxiosError(error)) {
+        if (error.response && error.response.status === 409) {
+          setDuplicate(true); // Set duplicate state
+          setTimeout(() => {
+            setDuplicate(false); // Reset duplicate state after 5 seconds
+            setPopupVisible(false); // Close the popup after 5 seconds
+          }, 3000); // Delay to show the duplicate animation for 5 seconds
+        } else {
+          console.error('Error subscribing:', error);
+          alert('Failed to subscribe. Please try again.');
+        }
+      } else {
+        console.error('Unexpected error:', error);
+        alert('An unexpected error occurred. Please try again.');
+      }
     }
   };
 
@@ -260,6 +276,51 @@ const Mail: React.FC = () => {
                   You've successfully subscribed.
                 </p>
               </div>
+            ) : isDuplicate ? (
+              <div style={{ textAlign: 'center' }}>
+                <div style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '50%',
+                  border: '3px solid #ff4d4d',
+                  margin: '0 auto 20px',
+                  position: 'relative',
+                  animation: 'wrongAnimation 0.6s ease-in-out',
+                }}>
+                  {/* First diagonal line (top-left to bottom-right) */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    width: '30px',
+                    height: '3px',
+                    backgroundColor: '#ff4d4d',
+                    transform: 'translate(-50%, -50%) rotate(45deg)',
+                  }} />
+                  {/* Second diagonal line (top-right to bottom-left) */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    width: '30px',
+                    height: '3px',
+                    backgroundColor: '#ff4d4d',
+                    transform: 'translate(-50%, -50%) rotate(-45deg)',
+                  }} />
+                </div>
+                <h2 style={{
+                  color: '#ff4d4d',
+                  fontSize: '24px',
+                  fontWeight: '900', // Bolder font weight
+                  marginBottom: '20px',
+                  fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
+                }}>
+                  Email Already Subscribed
+                </h2>
+                <p style={{ color: 'white', fontSize: '16px', fontFamily: 'Rhino, Arial, sans-serif', fontWeight: '900' }}>
+                  This email is already on our list.
+                </p>
+              </div>
             ) : (
               <>
                 <h2 style={{
@@ -323,10 +384,22 @@ const Mail: React.FC = () => {
         </div>
       )}
 
-      {/* CSS for Tick Animation */}
+      {/* CSS for Animations */}
       <style>
         {`
           @keyframes tickAnimation {
+            0% {
+              transform: scale(0);
+            }
+            50% {
+              transform: scale(1.2);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+
+          @keyframes wrongAnimation {
             0% {
               transform: scale(0);
             }

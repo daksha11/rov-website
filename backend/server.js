@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Add CORS support
@@ -32,9 +31,7 @@ const csvWriter = csv({
 // Function to get the next serial number based on the number of entries
 const getNextSerialNumber = async () => {
   try {
-    // Check if the CSV file exists
     if (fs.existsSync(csvFilePath)) {
-      // Read the existing CSV file
       const data = fs.readFileSync(csvFilePath, 'utf8');
       const lines = data.split('\n').filter(line => line.trim() !== ''); // Remove empty lines
 
@@ -50,6 +47,27 @@ const getNextSerialNumber = async () => {
   }
 };
 
+// Function to check if an email already exists in the CSV file
+const isEmailDuplicate = async (email) => {
+  try {
+    if (fs.existsSync(csvFilePath)) {
+      const data = fs.readFileSync(csvFilePath, 'utf8');
+      const lines = data.split('\n').filter(line => line.trim() !== ''); // Remove empty lines
+
+      for (const line of lines.slice(1)) { // Skip the header row
+        const [serialNumber, existingEmail] = line.split(',').map(item => item.trim());
+        if (existingEmail === email) {
+          return true; // Email already exists
+        }
+      }
+    }
+    return false; // Email does not exist
+  } catch (error) {
+    console.error('Error reading CSV file for duplicates:', error);
+    return false; // Default to no duplicates in case of error
+  }
+};
+
 // POST endpoint to handle email subscriptions
 app.post('/subscribe', async (req, res) => {
   const { email } = req.body;
@@ -59,6 +77,12 @@ app.post('/subscribe', async (req, res) => {
   }
 
   try {
+    // Check for duplicate email
+    const duplicate = await isEmailDuplicate(email);
+    if (duplicate) {
+      return res.status(409).json({ error: 'Email already exists' });
+    }
+
     // Generate the next serial number
     const serialNumber = await getNextSerialNumber();
 
