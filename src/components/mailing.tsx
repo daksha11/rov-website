@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Mail: React.FC = () => {
   const [isPopupVisible, setPopupVisible] = useState<boolean>(false);
@@ -27,14 +28,29 @@ const Mail: React.FC = () => {
     setSuccess(false); // Reset success state when popup is opened
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
-    // Simulate a successful registration
-    setSuccess(true);
-    setTimeout(() => {
-      setPopupVisible(false); // Close the popup after 2 seconds
-      setSuccess(false); // Reset success state
-    }, 2000); // Delay to show the tick animation
+
+    // Validate email (simple validation)
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    try {
+      // Send the email to the backend
+      await axios.post('http://localhost:5000/subscribe', { email });
+
+      // Simulate a successful registration
+      setSuccess(true);
+      setTimeout(() => {
+        setPopupVisible(false); // Close the popup after 2 seconds
+        setSuccess(false); // Reset success state
+      }, 2000); // Delay to show the tick animation
+    } catch (error) {
+      console.error('Error subscribing:', error);
+      alert('Failed to subscribe. Please try again.');
+    }
   };
 
   const handleClosePopup = (): void => {
@@ -114,34 +130,6 @@ const Mail: React.FC = () => {
     fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
     fontWeight: '900', // Bolder font weight
   };
-
-  const imagesContainerStyle: React.CSSProperties = {
-    marginTop: isMobile ? '20px' : '40px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '85%',
-    maxWidth: '900px',
-    flexWrap: 'wrap',
-    gap: isMobile ? '50px' : '130px',
-  };
-
-  const chakraImageStyle: React.CSSProperties = {
-    width: isMobile ? '150px' : '250px',
-    height: isMobile ? '200px' : '350px',
-    objectFit: 'contain',
-  };
-
-  const collageImageStyle = (top: string, left: string, transform: string, zIndex: number): React.CSSProperties => ({
-    width: isMobile ? '120px' : '180px',
-    height: isMobile ? '120px' : '180px',
-    objectFit: 'cover',
-    position: 'absolute',
-    top: isMobile ? `calc(${top} / 2)` : top,
-    left: isMobile ? `calc(${left} / 2)` : left,
-    transform: transform,
-    zIndex: zIndex,
-  });
 
   return (
     <div style={{
@@ -334,68 +322,6 @@ const Mail: React.FC = () => {
           </div>
         </div>
       )}
-
-      {/* Images Section - Chakra & Collage */}
-      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', gap: isMobile ? '20px' : '50px', marginTop: isMobile ? '30px' : '50px' }}>
-        {/* Chakra Image */}
-        <div>
-          <img
-            src="chakra.png"
-            alt="Chakra"
-            style={{
-              width: isMobile ? '150px' : '250px',
-              height: isMobile ? '200px' : '350px',
-              objectFit: 'contain',
-            }}
-          />
-        </div>
-
-        {/* Album Covers Collage */}
-        <div style={{ position: 'relative', width: isMobile ? '200px' : '350px', height: isMobile ? '200px' : '350px', marginBottom: "40px" }}>
-          <img
-            src="cover1.png"
-            alt="Artwork 1"
-            style={{
-              width: isMobile ? '120px' : '180px',
-              height: isMobile ? '120px' : '180px',
-              objectFit: 'cover',
-              position: 'absolute',
-              top: isMobile ? '20px' : '40px',
-              left: isMobile ? '10px' : '30px',
-              transform: 'rotate(-15deg)',
-              zIndex: 1,
-            }}
-          />
-          <img
-            src="rov_album_3.webp"
-            alt="Artwork 2"
-            style={{
-              width: isMobile ? '120px' : '180px',
-              height: isMobile ? '120px' : '180px',
-              objectFit: 'cover',
-              position: 'absolute',
-              top: isMobile ? '50px' : '80px',
-              left: isMobile ? '70px' : '100px',
-              transform: 'rotate(10deg)',
-              zIndex: 2,
-            }}
-          />
-          <img
-            src="cover2.png"
-            alt="Artwork 3"
-            style={{
-              width: isMobile ? '120px' : '180px',
-              height: isMobile ? '120px' : '180px',
-              objectFit: 'cover',
-              position: 'absolute',
-              top: isMobile ? '90px' : '140px',
-              left: isMobile ? '30px' : '60px',
-              transform: 'rotate(25deg)',
-              zIndex: 3,
-            }}
-          />
-        </div>
-      </div>
 
       {/* CSS for Tick Animation */}
       <style>
