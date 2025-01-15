@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <header
-      className="fixed w-full z-50 font-mono shadow-lg"
+      className="fixed w-full z-50 font-proxima-nova shadow-lg"
       style={{ backgroundColor: "rgba(22, 22, 23, 0.8)" }}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -42,7 +42,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-8 text-lg text-white">
+        <nav className="hidden md:flex space-x-8 text-lg text-white font-semibold">
           <button
             onClick={() => scrollToSection("home")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
@@ -104,7 +104,7 @@ const Navbar = () => {
         } overflow-hidden transition-all duration-700 md:hidden`}
         style={{ backgroundColor: "rgba(22, 22, 23, 0.8)" }}
       >
-        <nav className="flex flex-col text-gray-100 space-y-4 p-4">
+        <nav className="flex flex-col text-gray-100 space-y-4 p-4 font-semibold">
           <button
             onClick={() => scrollToSection("home")}
             className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"

@@ -27,7 +27,7 @@ const VideoPage: React.FC = () => {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "Rhino, Arial, sans-serif", // Updated font family
     padding: "20px",
     backgroundImage: "url('/StarBack.png')",
     backgroundSize: "cover",
@@ -46,17 +46,25 @@ const VideoPage: React.FC = () => {
   const verticalTextStyle180: React.CSSProperties = {
     writingMode: "vertical-rl",
     transform: "rotate(180deg)",
-    fontSize: isMobile ? "40px" : "70px", // Responsive font size
-    margin: isMobile ? "0 20px" : "0 50px", // Responsive margin
+    fontSize: isMobile ? "30px" : "50px", // Adjusted font size
+    margin: isMobile ? "0 10px" : "0 20px", // Adjusted margin
     textAlign: "center",
+    fontFamily: "Rhino, Arial, sans-serif", // Updated font family
+    fontWeight: "bold", // Make text bolder
+    maxHeight: isMobile ? "270px" : "450px", // Match iPod height
+    overflow: "hidden", // Prevent text overflow
   };
 
   const verticalTextStyle360: React.CSSProperties = {
     writingMode: "vertical-rl",
     transform: "rotate(360deg)",
-    fontSize: isMobile ? "40px" : "70px", // Responsive font size
-    margin: isMobile ? "0 20px" : "0 50px", // Responsive margin
+    fontSize: isMobile ? "30px" : "50px", // Adjusted font size
+    margin: isMobile ? "0 10px" : "0 20px", // Adjusted margin
     textAlign: "center",
+    fontFamily: "Rhino, Arial, sans-serif", // Updated font family
+    fontWeight: "bold", // Make text bolder
+    maxHeight: isMobile ? "270px" : "450px", // Match iPod height
+    overflow: "hidden", // Prevent text overflow
   };
 
   const videoContainerStyle: React.CSSProperties = {
@@ -86,7 +94,7 @@ const VideoPage: React.FC = () => {
       <div style={mainContainerStyle}>
         {/* Left Section */}
         <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}>
-          <div style={verticalTextStyle180}>Latest videos</div>
+          <div style={verticalTextStyle180}>LATEST VIDEOS</div>
           <div style={videoContainerStyle}>
             <video 
               style={videoStyle} 
@@ -111,7 +119,7 @@ const VideoPage: React.FC = () => {
               playsInline // Ensures video plays inline on mobile devices
             />
           </div>
-          <div style={verticalTextStyle360}>Latest videos</div>
+          <div style={verticalTextStyle360}>LATEST VIDEOS</div>
         </div>
       </div>
     </div>

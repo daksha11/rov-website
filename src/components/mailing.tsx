@@ -50,10 +50,11 @@ const Mail: React.FC = () => {
     justifyContent: 'space-around',
     alignItems: 'center',
     fontSize: isMobile ? '20px' : '40px',
-    fontWeight: 'bold',
+    fontWeight: '800', // Bolder font weight
     marginBottom: isMobile ? '50px' : '100px',
     marginTop: '0',
-    flexWrap: isMobile ? 'wrap' : 'nowrap'
+    flexWrap: isMobile ? 'wrap' : 'nowrap',
+    fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
   };
 
   const tvContainerStyle: React.CSSProperties = {
@@ -64,7 +65,7 @@ const Mail: React.FC = () => {
     width: '85%',
     maxWidth: '900px',
     marginTop: isMobile ? '20px' : '40px',
-    gap: isMobile ? '20px' : '30px'
+    gap: isMobile ? '20px' : '30px',
   };
 
   const tvStyle: React.CSSProperties = {
@@ -73,7 +74,7 @@ const Mail: React.FC = () => {
     height: isMobile ? '180px' : '270px',
     backgroundImage: `url('tv.png')`,
     backgroundSize: 'cover',
-    backgroundPosition: 'center'
+    backgroundPosition: 'center',
   };
 
   const contentImageStyle: React.CSSProperties = {
@@ -84,16 +85,17 @@ const Mail: React.FC = () => {
     height: isMobile ? '120px' : '180px',
     objectFit: 'cover',
     zIndex: '1',
-    borderRadius: '10px'
+    borderRadius: '10px',
   };
 
   const rightTextStyle: React.CSSProperties = {
     maxWidth: '400px',
     textAlign: isMobile ? 'center' : 'right',
     fontSize: isMobile ? '24px' : '35px',
-    fontWeight: 'bold',
+    fontWeight: '700', // Bolder font weight
     color: '#3c97a5',
-    paddingLeft: isMobile ? '0' : '60px'
+    paddingLeft: isMobile ? '0' : '60px',
+    fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
   };
 
   const buttonStyle: React.CSSProperties = {
@@ -108,7 +110,9 @@ const Mail: React.FC = () => {
     width: '80%',
     maxWidth: '1000px',
     textAlign: 'center',
-    transition: 'all 0.3s ease-in-out'
+    transition: 'all 0.3s ease-in-out',
+    fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
+    fontWeight: '900', // Bolder font weight
   };
 
   const imagesContainerStyle: React.CSSProperties = {
@@ -119,13 +123,13 @@ const Mail: React.FC = () => {
     width: '85%',
     maxWidth: '900px',
     flexWrap: 'wrap',
-    gap: isMobile ? '50px' : '130px'
+    gap: isMobile ? '50px' : '130px',
   };
 
   const chakraImageStyle: React.CSSProperties = {
     width: isMobile ? '150px' : '250px',
     height: isMobile ? '200px' : '350px',
-    objectFit: 'contain'
+    objectFit: 'contain',
   };
 
   const collageImageStyle = (top: string, left: string, transform: string, zIndex: number): React.CSSProperties => ({
@@ -136,19 +140,19 @@ const Mail: React.FC = () => {
     top: isMobile ? `calc(${top} / 2)` : top,
     left: isMobile ? `calc(${left} / 2)` : left,
     transform: transform,
-    zIndex: zIndex
+    zIndex: zIndex,
   });
 
   return (
     <div style={{
       backgroundColor: 'black',
       color: 'white',
-      fontFamily: 'Arial, sans-serif',
+      fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
       padding: '20px 0',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      textAlign: 'center'
+      textAlign: 'center',
     }}>
 
       {/* Header */}
@@ -198,7 +202,7 @@ const Mail: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          zIndex: '1000'
+          zIndex: '1000',
         }}>
           <div style={{
             backgroundColor: '#1a1a1a',
@@ -208,7 +212,7 @@ const Mail: React.FC = () => {
             textAlign: 'center',
             boxShadow: '0px 0px 20px rgba(60, 151, 165, 0.5)',
             border: '1px solid #3c97a5',
-            position: 'relative'
+            position: 'relative',
           }}>
             {/* Close Button (X) */}
             <button
@@ -222,8 +226,9 @@ const Mail: React.FC = () => {
                 color: '#3c97a5',
                 fontSize: '20px',
                 cursor: 'pointer',
-                fontWeight: 'bold',
-                transition: 'color 0.3s ease-in-out'
+                fontWeight: '900', // Bolder font weight
+                transition: 'color 0.3s ease-in-out',
+                fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
               }}
               onMouseOver={(e) => (e.currentTarget.style.color = '#ff4d4d')}
               onMouseOut={(e) => (e.currentTarget.style.color = '#3c97a5')}
@@ -241,7 +246,7 @@ const Mail: React.FC = () => {
                   border: '3px solid #3c97a5',
                   margin: '0 auto 20px',
                   position: 'relative',
-                  animation: 'tickAnimation 0.6s ease-in-out'
+                  animation: 'tickAnimation 0.6s ease-in-out',
                 }}>
                   <div style={{
                     position: 'absolute',
@@ -251,19 +256,19 @@ const Mail: React.FC = () => {
                     height: '40px',
                     borderBottom: '3px solid #3c97a5',
                     borderRight: '3px solid #3c97a5',
-                    transform: 'translate(-50%, -60%) rotate(45deg)'
+                    transform: 'translate(-50%, -60%) rotate(45deg)',
                   }} />
                 </div>
                 <h2 style={{
                   color: '#3c97a5',
                   fontSize: '24px',
-                  fontWeight: 'bold',
+                  fontWeight: '900', // Bolder font weight
                   marginBottom: '20px',
-                  fontFamily: 'Arial, sans-serif'
+                  fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
                 }}>
                   Thank You!
                 </h2>
-                <p style={{ color: 'white', fontSize: '16px' }}>
+                <p style={{ color: 'white', fontSize: '16px', fontFamily: 'Rhino, Arial, sans-serif', fontWeight: '900' }}>
                   You've successfully subscribed.
                 </p>
               </div>
@@ -272,9 +277,9 @@ const Mail: React.FC = () => {
                 <h2 style={{
                   color: '#3c97a5',
                   fontSize: '24px',
-                  fontWeight: 'bold',
+                  fontWeight: '900', // Bolder font weight
                   marginBottom: '20px',
-                  fontFamily: 'Arial, sans-serif'
+                  fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
                 }}>
                   Join the R.O.V Community
                 </h2>
@@ -295,7 +300,9 @@ const Mail: React.FC = () => {
                       color: 'white',
                       fontSize: '14px',
                       outline: 'none',
-                      transition: 'border-color 0.3s ease-in-out'
+                      transition: 'border-color 0.3s ease-in-out',
+                      fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
+                      fontWeight: '900', // Bolder font weight
                     }}
                     onFocus={(e) => (e.target.style.borderColor = '#3c97a5')}
                     onBlur={(e) => (e.target.style.borderColor = '#3c97a5')}
@@ -310,10 +317,11 @@ const Mail: React.FC = () => {
                       borderRadius: '8px',
                       cursor: 'pointer',
                       fontSize: '16px',
-                      fontWeight: 'bold',
+                      fontWeight: '900', // Bolder font weight
                       marginTop: '15px',
                       width: '100%',
-                      transition: 'background-color 0.3s ease-in-out'
+                      transition: 'background-color 0.3s ease-in-out',
+                      fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
                     }}
                     onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#2c7a8a')}
                     onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#3c97a5')}
@@ -337,7 +345,7 @@ const Mail: React.FC = () => {
             style={{
               width: isMobile ? '150px' : '250px',
               height: isMobile ? '200px' : '350px',
-              objectFit: 'contain'
+              objectFit: 'contain',
             }}
           />
         </div>
