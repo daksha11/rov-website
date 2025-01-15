@@ -2,38 +2,21 @@
 import Link from 'next/link';
 
 const Footer = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.error(`Element with id "${id}" not found.`);
+    }
+  };
+
   return (
     <footer className="bg-black text-gray-200 font-mono shadow-lg w-full">
       <div className="container mx-auto px-6 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {/* Tools Section */}
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Tools</h2>
-          <ul className="space-y-2">
-            <li>
-              <Link
-                href="/music-production-tools"
-                className="hover:text-amber-500 transition-colors duration-300"
-              >
-                Music Production Tools
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/dj-equipment"
-                className="hover:text-amber-500 transition-colors duration-300"
-              >
-                DJ Equipment
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/sound-design"
-                className="hover:text-amber-500 transition-colors duration-300"
-              >
-                Sound Design Tools
-              </Link>
-            </li>
-          </ul>
+        <div className="flex flex-col items-center">
+          <img src="/Gear_Up_Design.png" alt="Range of View Logo" className="mb-2" style={{ width: "100px" }} />
         </div>
 
         {/* Services Section */}
@@ -42,7 +25,11 @@ const Footer = () => {
           <ul className="space-y-2">
             <li>
               <Link
-                href="/services"
+                href="#services" // Link to the section ID
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent default link behavior
+                  scrollToSection("services"); // Scroll to the section
+                }}
                 className="hover:text-emerald-500 transition-colors duration-300"
               >
                 Music Mixing
@@ -50,7 +37,11 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="/services"
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("services");
+                }}
                 className="hover:text-emerald-500 transition-colors duration-300"
               >
                 Mastering Services
@@ -58,7 +49,11 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="/services"
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("services");
+                }}
                 className="hover:text-emerald-500 transition-colors duration-300"
               >
                 Cover Art / Graphics
