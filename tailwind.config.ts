@@ -13,7 +13,8 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        rhino: ["Rhino", "sans-serif"], // Add the Rhino font
+        rhino: ["Rhino", "sans-serif"], // Rhino font
+        certtoHeadline: ["CerttoHeadline", "sans-serif"], // Certto Headline font
       },
     },
   },

@@ -19,3 +19,15 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@font-face {
+  font-family: "CerttoHeadline";
+  src: url("/fonts/Certto-Headline.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-certto-headline {
+  font-family: "CerttoHeadline", sans-serif;
+}

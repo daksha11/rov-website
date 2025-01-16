@@ -8,10 +8,10 @@ export function HeroScrollDemo() {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl text-black dark:text-white font-rhino">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl text-black dark:text-white font-certto-headline">
               The Ultimate Studio Experience <br />
               <span className="text-xl sm:text-2xl md:text-[3rem] font-bold mt-1 leading-none font-rhino">
-                Where Hits Matter
+                where hits matter
               </span>
             </h1>
           </>

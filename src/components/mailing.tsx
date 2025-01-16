@@ -149,7 +149,6 @@ const Mail: React.FC = () => {
 
   return (
     <div style={{
-      backgroundColor: 'black',
       color: 'white',
       fontFamily: 'Rhino, Arial, sans-serif', // Updated font family
       padding: '20px 0',
@@ -157,6 +156,11 @@ const Mail: React.FC = () => {
       flexDirection: 'column',
       alignItems: 'center',
       textAlign: 'center',
+      backgroundImage: "url('/paper_texture_back_2.png')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'repeat',
+      backgroundAttachment: 'fixed'
     }}>
 
       {/* Header */}

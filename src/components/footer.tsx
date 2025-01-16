@@ -13,7 +13,12 @@ const Footer = () => {
 
   return (
     <footer className="bg-black text-gray-200 font-mono shadow-lg w-full">
-      <div className="container mx-auto px-6 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="container mx-auto px-6 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8" 
+      style={{backgroundImage: "url('/paper_texture_back_2.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'repeat',
+        backgroundAttachment: 'fixed'}}>
         {/* Tools Section */}
         <div className="flex flex-col items-center">
           <img src="/Gear_Up_Design.png" alt="Range of View Logo" className="mb-2" style={{ width: "100px" }} />

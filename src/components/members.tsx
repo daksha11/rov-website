@@ -44,7 +44,13 @@ const TeamMembersPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black" id='members' style={{ paddingTop: '50px' }}> {/* Added padding-top for gap */}
+    <div className="min-h-screen bg-black" id='members' 
+    style={{backgroundImage: "url('/paper_texture_back_2.png')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'repeat',
+      backgroundAttachment: 'fixed',
+      paddingTop: '50px' }}> {/* Added padding-top for gap */}
       {/* Header */}
       <div style={headerStyle}>
         <span>RANGE OF VIEW</span>

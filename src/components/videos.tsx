@@ -21,7 +21,6 @@ const VideoPage: React.FC = () => {
 
   // Styles
   const pageStyle: React.CSSProperties = {
-    backgroundColor: "black",
     color: "white",
     minHeight: "100vh",
     display: "flex",
@@ -29,9 +28,11 @@ const VideoPage: React.FC = () => {
     alignItems: "center",
     fontFamily: "Rhino, Arial, sans-serif", // Updated font family
     padding: "20px",
-    backgroundImage: "url('/StarBack.png')",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    backgroundImage: "url('/paper_texture_back_2.png')",
+    backgroundRepeat: 'repeat',
+    backgroundAttachment: 'fixed'
   };
 
   const mainContainerStyle: React.CSSProperties = {

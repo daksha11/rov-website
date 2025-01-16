@@ -83,11 +83,15 @@ const MixPlaylist = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        backgroundColor: "#000",
         color: "#fff",
         minHeight: "100vh",
         padding: "20px",
         marginTop: "40px",
+        backgroundImage: "url('/paper_texture_back_2.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'repeat',
+        backgroundAttachment: 'fixed'
       }}
     >
       <div
