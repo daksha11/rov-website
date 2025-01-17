@@ -1,14 +1,20 @@
 "use client";
 import React from "react";
+import Button from "./ui/contact_us"; // Adjust the import path as per your project structure
 
 function Service() {
   return (
-    <div className="min-h-screen bg-black p-8 md:p-16" id="services"
-    style={{backgroundImage: "url('/paper_texture_back_2.png')",
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'repeat',
-      backgroundAttachment: 'fixed'}}>
+    <div
+      className="min-h-screen bg-black p-8 md:p-16"
+      id="services"
+      style={{
+        backgroundImage: "url('/paper_texture_back_2.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "repeat",
+        backgroundAttachment: "fixed",
+      }}
+    >
       <div className="max-w-5xl mx-auto">
         {/* Centered Services Title */}
         <h1 className="text-white text-4xl md:text-6xl font-bold text-center mb-12 md:mb-24">
@@ -34,10 +40,8 @@ function Service() {
                 <br />
                 Comes with revisions.
               </p>
-              <div>
-                <button className="bg-[#3b96a2] text-white px-12 py-4 md:px-12 md:py-3 rounded-full text-lg font-medium hover:bg-[#2d7782] transition-colors shadow-lg w-fit mx-auto md:mx-0">
-                  Contact us
-                </button>
+              <div className="w-fit mx-auto md:mx-0">
+                <Button />
               </div>
             </div>
           </div>
@@ -60,10 +64,8 @@ function Service() {
                 <br />
                 more.
               </p>
-              <div>
-                <button className="bg-[#3b96a2] text-white px-12 py-4 md:px-12 md:py-3 rounded-full text-lg font-medium hover:bg-[#2d7782] transition-colors shadow-lg w-fit mx-auto md:mx-0">
-                  Contact us
-                </button>
+              <div className="w-fit mx-auto md:mx-0">
+                <Button />
               </div>
             </div>
           </div>
