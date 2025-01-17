@@ -69,6 +69,18 @@ function Service() {
               </div>
             </div>
           </div>
+
+          {/* Google Calendar Embed */}
+          <div className="flex justify-center mt-12">
+            <iframe
+              src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&showTitle=0&src=bS5yb2hpdGhzYWlnb3BhbEBnbWFpbC5jb20&color=%23039BE5"
+              style={{ borderWidth: 0 }}
+              width="800"
+              height="600"
+              frameBorder="0"
+              scrolling="no"
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>
