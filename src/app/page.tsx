@@ -5,10 +5,8 @@ import Navbar from "@/components/navbar";
 import Carousel from "@/components/portfolio";
 import VideoPage from "@/components/videos";
 import MixPlaylist from "@/components/chart";
-import TeamMembersPage from "@/components/members";
 import Gallery from "@/components/gallery";
 import Service from "@/components/services";
-import Cultures from "@/components/cultures";
 import { url } from "inspector";
 export default function Home() {
   return (
@@ -26,8 +24,6 @@ export default function Home() {
         <MixPlaylist />
         <Service />
         <Gallery />
-        <Cultures />
-        <TeamMembersPage />
         <Carousel />
         <Footer />
       </div>

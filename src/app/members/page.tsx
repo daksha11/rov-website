@@ -1,9 +1,13 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation'; // Correct import for useRouter
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer'; // Import the Footer component
 
 const TeamMembersPage = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const router = useRouter(); // Initialize useRouter
 
   // Check if the screen is mobile-sized
   useEffect(() => {
@@ -27,39 +31,18 @@ const TeamMembersPage = () => {
     { id: 'member5', image: '/temp.png' }
   ];
 
-  // Header Style
-  const headerStyle: React.CSSProperties = {
-    backgroundColor: '#ff96ee',
-    width: '100%',
-    padding: isMobile ? '10px 0' : '7px 0',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    fontSize: isMobile ? '20px' : '40px',
-    fontWeight: 'bold',
-    marginBottom: isMobile ? '50px' : '100px',
-    marginTop: '0',
-    flexWrap: isMobile ? 'wrap' : 'nowrap',
-    color: "black"
-  };
-
   return (
     <div className="min-h-screen bg-black" id='members' 
     style={{backgroundImage: "url('/paper_texture_back_2.png')",
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'repeat',
-      backgroundAttachment: 'fixed',
-      paddingTop: '50px' }}> {/* Added padding-top for gap */}
-      {/* Header */}
-      <div style={headerStyle}>
-        <span>RANGE OF VIEW</span>
-        <span>RANGE OF VIEW</span>
-        {!isMobile && <span>RANGE OF VIEW</span>} {/* Conditionally render the third span */}
-      </div>
+      backgroundAttachment: 'fixed', }}>
+      {/* Navbar */}
+      <Navbar />
 
       {/* Grid Container with wider spacing */}
-      <div className="flex flex-wrap justify-between p-10 max-w-6xl mx-auto">
+      <div className="flex flex-wrap justify-between p-10 max-w-6xl mx-auto pt-20"> {/* Added pt-20 for padding-top */}
         {teamMembers.map((member, index) => (
           <div 
             key={member.id}
@@ -74,6 +57,9 @@ const TeamMembersPage = () => {
           </div>
         ))}
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

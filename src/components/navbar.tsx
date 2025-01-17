@@ -1,26 +1,67 @@
-"use client";
+"use client"; // Required for client-side interactivity
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter, usePathname } from "next/navigation"; // Import useRouter and usePathname
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter(); // Initialize useRouter
+  const pathname = usePathname(); // Get the current pathname
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const scrollToSection = (id: string) => {
-    console.log(`Scrolling to section with id: ${id}`); // Debugging
-    const element = document.getElementById(id);
-    if (element) {
-      console.log("Element found:", element); // Debugging
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleScrollToSection = (id: string) => {
+    if (pathname !== "/") {
+      // If not on the home page, navigate to the home page with the section ID as a hash
+      router.push(`/#${id}`);
     } else {
-      console.error(`Element with id "${id}" not found.`); // Debugging
+      // If already on the home page, scroll to the section
+      scrollToSection(id);
     }
     setIsOpen(false); // Close the mobile menu after clicking a link
   };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.error(`Element with id "${id}" not found.`);
+    }
+  };
+
+  const handleCulturesClick = () => {
+    if (pathname === "/cultures") {
+      // If already on the Cultures page, scroll to the top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // Navigate to the Cultures page
+      router.push("/cultures");
+    }
+    setIsOpen(false); // Close the mobile menu after clicking a link
+  };
+
+  const handleMembersClick = () => {
+    if (pathname === "/members") {
+      // If already on the Members page, scroll to the top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // Navigate to the Members page
+      router.push("/members");
+    }
+    setIsOpen(false); // Close the mobile menu after clicking a link
+  };
+
+  // Handle hash changes after navigation to the home page
+  useEffect(() => {
+    if (pathname === "/" && window.location.hash) {
+      const hash = window.location.hash.substring(1); // Remove the '#' from the hash
+      scrollToSection(hash);
+    }
+  }, [pathname]);
 
   return (
     <header
@@ -44,42 +85,44 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-8 text-lg text-white font-semibold">
           <button
-            onClick={() => scrollToSection("home")}
+            onClick={() => handleScrollToSection("home")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Home
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </button>
           <button
-            onClick={() => scrollToSection("mix-playlist")}
+            onClick={() => handleScrollToSection("mix-playlist")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Mix Playlist
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </button>
           <button
-            onClick={() => scrollToSection("services")}
+            onClick={() => handleScrollToSection("services")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Services
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </button>
           <button
-            onClick={() => scrollToSection("gallery")}
+            onClick={() => handleScrollToSection("gallery")}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Gallery
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </button>
+          {/* Cultures Button */}
           <button
-            onClick={() => scrollToSection("culture")}
+            onClick={handleCulturesClick}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Culture
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-amber-400 group-hover:w-full transition-all duration-300"></span>
           </button>
+          {/* Members Button */}
           <button
-            onClick={() => scrollToSection("members")}
+            onClick={handleMembersClick}
             className="relative group hover:text-amber-400 transition-colors duration-300"
           >
             Members
@@ -106,37 +149,39 @@ const Navbar = () => {
       >
         <nav className="flex flex-col text-gray-100 space-y-4 p-4 font-semibold">
           <button
-            onClick={() => scrollToSection("home")}
+            onClick={() => handleScrollToSection("home")}
             className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Home
           </button>
           <button
-            onClick={() => scrollToSection("mix-playlist")}
+            onClick={() => handleScrollToSection("mix-playlist")}
             className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Mix Playlist
           </button>
           <button
-            onClick={() => scrollToSection("services")}
+            onClick={() => handleScrollToSection("services")}
             className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Services
           </button>
           <button
-            onClick={() => scrollToSection("gallery")}
+            onClick={() => handleScrollToSection("gallery")}
             className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Gallery
           </button>
+          {/* Cultures Button */}
           <button
-            onClick={() => scrollToSection("culture")}
+            onClick={handleCulturesClick}
             className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
-            Culture
+            Cultures
           </button>
+          {/* Members Button */}
           <button
-            onClick={() => scrollToSection("members")}
+            onClick={handleMembersClick}
             className="hover:text-gray-300 text-lg transition-colors duration-300 text-left"
           >
             Members
